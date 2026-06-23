@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DTN — The compass for your business.</title>
+  <meta name="description" content="DTN: automação, IA e dados para pequenas e médias empresas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────── */
+    :root {
+      --navy:   #1e2535;
+      --slate:  #2d3548;
+      --fog:    #4a5568;
+      --gold:   #b8963e;
+      --gold-lt:#d4b06a;
+      --white:  #ffffff;
+      --off:    #f0f2f5;
+      --text:   #e2e8f0;
+      --muted:  #94a3b8;
+      --radius: 4px;
+      --max:    1200px;
+    }
+
+    /* ─── RESET ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Sora', sans-serif; line-height: 1.2; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; }
+    h3 { font-size: 1.1rem; font-weight: 600; }
+    p  { font-size: 0.95rem; color: var(--muted); }
+
+    .gold { color: var(--gold); }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    section { padding: 6rem 0; }
+
+    /* ─── NAV ────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(30, 37, 53, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,150,62,0.15);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .nav-logo .logo-text {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo .logo-text span { color: var(--gold); }
+    .nav-logo .logo-divider {
+      width: 1px; height: 28px;
+      background: var(--gold);
+      opacity: 0.6;
+      margin: 0 0.75rem;
+    }
+    .nav-logo .logo-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: 'Sora', sans-serif;
+      line-height: 1.3;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .lang-toggle {
+      display: flex; gap: 0.25rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2rem;
+      padding: 0.25rem;
+    }
+    .lang-btn {
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--muted);
+      border: none; background: transparent;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.active { background: var(--gold); color: var(--navy); }
+    .btn-cta-nav {
+      font-size: 0.78rem; font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: var(--radius);
+      border: none; cursor: pointer;
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-cta-nav:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #1e2535 0%, #252d3f 40%, #1a2030 100%);
+    }
+    .hero-mountain {
+      position: absolute;
+      bottom: 0; right: -5%;
+      width: 65%;
+      opacity: 0.22;
+      pointer-events: none;
+      filter: brightness(0.6);
+    }
+    .hero-glow {
+      position: absolute;
+      bottom: 10%; right: 15%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,150,62,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: var(--max); margin: 0 auto; padding: 0 2rem;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); font-family: 'Sora', sans-serif; font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--gold);
+    }
+    .hero h1 { margin-bottom: 1.5rem; max-width: 680px; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub {
+      max-width: 500px; font-size: 1rem;
+      color: var(--muted); margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.85rem;
+      border: none; border-radius: var(--radius);
+      cursor: pointer; letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--white);
+      font-weight: 500;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      cursor: pointer; letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item .stat-num {
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: 1.8rem; color: var(--white);
+    }
+    .stat-item .stat-num span { color: var(--gold); }
+    .stat-item .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ─── DIVIDER ────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,150,62,0.3), transparent);
+      margin: 0 2rem;
+    }
+
+    /* ─── SERVICES ───────────────────────────────── */
+    #services { background: var(--navy); }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-header p { max-width: 520px; margin: 1rem auto 0; font-size: 1rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .service-card {
+      background: var(--navy);
+      padding: 2.5rem;
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .service-card:hover { background: var(--slate); }
+    .service-icon {
+      font-size: 1.6rem; margin-bottom: 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px;
+      border: 1px solid rgba(184,150,62,0.25);
+      border-radius: var(--radius);
+    }
+    .service-card h3 { color: var(--white); margin-bottom: 0.75rem; }
+    .service-card p { font-size: 0.875rem; line-height: 1.7; }
+    .service-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem;
+    }
+    .tag {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(184,150,62,0.3);
+      color: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* ─── HOW IT WORKS ───────────────────────────── */
+    #how { background: var(--slate); }
+    .how-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .how-steps { display: flex; flex-direction: column; gap: 2.5rem; }
+    .step { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .step-num {
+      flex-shrink: 0;
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: 0.7rem; letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid rgba(184,150,62,0.3);
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius);
+    }
+    .step h3 { color: var(--white); margin-bottom: 0.4rem; }
+    .step p { font-size: 0.875rem; }
+    .how-visual {
+      position: relative;
+    }
+    .how-visual img {
+      width: 100%; border-radius: var(--radius);
+      filter: brightness(0.5) saturate(0.6);
+    }
+    .how-visual-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(30,37,53,0.6) 0%, transparent 60%);
+      border-radius: var(--radius);
+    }
+    .how-badge {
+      position: absolute; bottom: 2rem; left: 2rem;
+      background: rgba(184,150,62,0.15);
+      border: 1px solid rgba(184,150,62,0.4);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+    .how-badge .badge-val {
+      font-family: 'Sora', sans-serif; font-size: 1.6rem;
+      font-weight: 700; color: var(--gold);
+    }
+    .how-badge .badge-label {
+      font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem;
+    }
+
+    /* ─── PRODUCTS ───────────────────────────────── */
+    #products { background: var(--navy); }
+    .products-header { text-align: center; margin-bottom: 4rem; }
+    .products-header p { max-width: 520px; margin: 1rem auto 0; }
+    .products-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      background: var(--slate);
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .product-card:hover { border-color: rgba(184,150,62,0.3); transform: translateY(-3px); }
+    .product-card:hover::before { opacity: 1; }
+    .product-badge {
+      display: inline-block;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      background: rgba(184,150,62,0.12);
+      color: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+    .product-card h3 { font-size: 1.25rem; color: var(--white); margin-bottom: 0.75rem; }
+    .product-card p { font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .product-features {
+      list-style: none; display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .product-features li {
+      font-size: 0.8rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .product-features li::before {
+      content: ''; flex-shrink: 0;
+      width: 6px; height: 6px;
+      background: var(--gold); border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    /* ─── CTA BAND ───────────────────────────────── */
+    .cta-band {
+      background: linear-gradient(135deg, #252d3f 0%, #1e2535 100%);
+      border-top: 1px solid rgba(184,150,62,0.2);
+      border-bottom: 1px solid rgba(184,150,62,0.2);
+      padding: 5rem 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(184,150,62,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band h2 { margin-bottom: 1rem; }
+    .cta-band p { max-width: 480px; margin: 0 auto 2rem; font-size: 1rem; }
+    .cta-band .btn-primary { font-size: 0.9rem; padding: 1rem 2.5rem; }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: #161d2b;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 0.75rem; color: var(--fog); }
+    .footer-links {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+    .footer-links a { font-size: 0.78rem; color: var(--fog); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact {
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .footer-contact a { color: var(--gold); }
+
+    /* ─── MOBILE ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-mountain { width: 100%; right: 0; opacity: 0.12; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .how-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .how-visual { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      nav { padding: 1rem; }
+    }
+
+    /* ─── TRANSITIONS ────────────────────────────── */
+    [data-lang] { transition: opacity 0.2s; }
+    .fade { opacity: 0; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-text">d<span>◎</span>tn</div>
+    <div class="logo-divider"></div>
+    <div class="logo-tagline" data-pt="A bússola do<br>seu negócio." data-en="The compass<br>for your business.">A bússola do<br>seu negócio.</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+    <li><a href="#how" data-pt="Como funciona" data-en="How it works">Como funciona</a></li>
+    <li><a href="#products" data-pt="Produtos" data-en="Products">Produtos</a></li>
+    <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="btn-cta-nav" data-pt="Fale conosco" data-en="Talk to us" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Fale conosco</button>
+  </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <img class="hero-mountain" src="src/mountain.png" alt="" />
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-pt="Tecnologia para PMEs" data-en="Technology for SMBs">Tecnologia para PMEs</div>
+    <h1 data-pt="Automatize. Analise.<br><em>Cresça.</em>" data-en="Automate. Analyze.<br><em>Grow.</em>">Automatize. Analise.<br><em>Cresça.</em></h1>
+    <p class="hero-sub" data-pt="A DTN transforma pequenas e médias empresas com IA, automação e análise de dados — entregando tecnologia de ponta com a agilidade que o seu negócio precisa." data-en="DTN transforms small and medium businesses with AI, automation and data analytics — delivering cutting-edge technology with the agility your business needs.">A DTN transforma pequenas e médias empresas com IA, automação e análise de dados — entregando tecnologia de ponta com a agilidade que o seu negócio precisa.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" data-pt="Conheça nossos serviços" data-en="Explore our services" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Conheça nossos serviços</button>
+      <button class="btn-outline" data-pt="Fale com a equipe" data-en="Talk to the team" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Fale com a equipe</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">+50<span>%</span></div>
+        <div class="stat-label" data-pt="de redução em tarefas manuais" data-en="reduction in manual tasks">de redução em tarefas manuais</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24<span>h</span></div>
+        <div class="stat-label" data-pt="atendimento automatizado" data-en="automated support">atendimento automatizado</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label" data-pt="foco no seu negócio" data-en="focused on your business">foco no seu negócio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SERVICES ──────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label" data-pt="O que fazemos" data-en="What we do">O que fazemos</div>
+      <h2 data-pt="Serviços pensados para<br>o seu tamanho" data-en="Services designed<br>for your scale">Serviços pensados para<br>o seu tamanho</h2>
+      <p data-pt="Desde automação de WhatsApp até dashboards de dados — entregamos soluções que geram resultado real." data-en="From WhatsApp automation to data dashboards — we deliver solutions that produce real results.">Desde automação de WhatsApp até dashboards de dados — entregamos soluções que geram resultado real.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3 data-pt="Chatbots & WhatsApp" data-en="Chatbots & WhatsApp">Chatbots & WhatsApp</h3>
+        <p data-pt="Atendimento automatizado 24h via WhatsApp, Instagram e Web. Qualificação de leads, agendamentos e suporte sem custo de equipe adicional." data-en="24h automated support via WhatsApp, Instagram and Web. Lead qualification, scheduling and support without extra team costs.">Atendimento automatizado 24h via WhatsApp, Instagram e Web. Qualificação de leads, agendamentos e suporte sem custo de equipe adicional.</p>
+        <div class="service-tags">
+          <span class="tag">WhatsApp API</span>
+          <span class="tag">IA Generativa</span>
+          <span class="tag">N8N</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 data-pt="Análise de Dados" data-en="Data Analytics">Análise de Dados</h3>
+        <p data-pt="Transformamos planilhas e sistemas dispersos em dashboards claros e decisões embasadas. Relatórios automatizados, KPIs em tempo real." data-en="We transform scattered spreadsheets and systems into clear dashboards and data-driven decisions. Automated reports, real-time KPIs.">Transformamos planilhas e sistemas dispersos em dashboards claros e decisões embasadas. Relatórios automatizados, KPIs em tempo real.</p>
+        <div class="service-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3 data-pt="Automação de Processos" data-en="Process Automation">Automação de Processos</h3>
+        <p data-pt="Eliminamos tarefas repetitivas: envio de e-mails, emissão de NF, controle de estoque, follow-up de clientes — tudo no piloto automático." data-en="We eliminate repetitive tasks: email sending, invoice generation, inventory control, customer follow-ups — all on autopilot.">Eliminamos tarefas repetitivas: envio de e-mails, emissão de NF, controle de estoque, follow-up de clientes — tudo no piloto automático.</p>
+        <div class="service-tags">
+          <span class="tag">N8N</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">APIs</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3 data-pt="Inteligência Artificial" data-en="Artificial Intelligence">Inteligência Artificial</h3>
+        <p data-pt="Modelos de previsão de demanda, análise de churn, classificação de clientes e geração de conteúdo. IA aplicada ao seu contexto de negócio." data-en="Demand forecasting models, churn analysis, customer classification and content generation. AI applied to your business context.">Modelos de previsão de demanda, análise de churn, classificação de clientes e geração de conteúdo. IA aplicada ao seu contexto de negócio.</p>
+        <div class="service-tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👥</div>
+        <h3 data-pt="CRM & Gestão de Clientes" data-en="CRM & Customer Management">CRM & Gestão de Clientes</h3>
+        <p data-pt="Implementação e customização de CRM, funil de vendas automatizado, segmentação de carteira e régua de relacionamento personalizada." data-en="CRM implementation and customization, automated sales funnel, portfolio segmentation and personalized relationship cadence.">Implementação e customização de CRM, funil de vendas automatizado, segmentação de carteira e régua de relacionamento personalizada.</p>
+        <div class="service-tags">
+          <span class="tag">CRM</span>
+          <span class="tag">Automação</span>
+          <span class="tag">Integração</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3 data-pt="Desenvolvimento Web & APIs" data-en="Web Development & APIs">Desenvolvimento Web & APIs</h3>
+        <p data-pt="Sites, landing pages, sistemas internos e integrações entre plataformas. Desenvolvimento ágil com foco em resultado e escalabilidade." data-en="Websites, landing pages, internal systems and platform integrations. Agile development focused on results and scalability.">Sites, landing pages, sistemas internos e integrações entre plataformas. Desenvolvimento ágil com foco em resultado e escalabilidade.</p>
+        <div class="service-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── HOW IT WORKS ───────────────────────────────── -->
+<section id="how">
+  <div class="container">
+    <div class="how-inner">
+      <div>
+        <div class="section-label" data-pt="Como funciona" data-en="How it works">Como funciona</div>
+        <h2 style="margin-bottom:2.5rem" data-pt="Da conversa ao<br>resultado em semanas" data-en="From conversation to<br>results in weeks">Da conversa ao<br>resultado em semanas</h2>
+        <div class="how-steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h3 data-pt="Diagnóstico gratuito" data-en="Free diagnosis">Diagnóstico gratuito</h3>
+              <p data-pt="Entendemos os gargalos do seu negócio, mapeamos processos e identificamos onde tecnologia gera mais valor." data-en="We understand your business bottlenecks, map processes and identify where technology creates the most value.">Entendemos os gargalos do seu negócio, mapeamos processos e identificamos onde tecnologia gera mais valor.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h3 data-pt="Proposta sob medida" data-en="Tailored proposal">Proposta sob medida</h3>
+              <p data-pt="Desenhamos uma solução com escopo, prazo e investimento claros — sem surpresas no caminho." data-en="We design a solution with clear scope, timeline and investment — no surprises along the way.">Desenhamos uma solução com escopo, prazo e investimento claros — sem surpresas no caminho.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h3 data-pt="Entrega e capacitação" data-en="Delivery & training">Entrega e capacitação</h3>
+              <p data-pt="Implementamos, testamos e treinamos sua equipe. Você fica no controle desde o primeiro dia." data-en="We implement, test and train your team. You stay in control from day one.">Implementamos, testamos e treinamos sua equipe. Você fica no controle desde o primeiro dia.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div>
+              <h3 data-pt="Suporte contínuo" data-en="Ongoing support">Suporte contínuo</h3>
+              <p data-pt="Monitoramos, evoluímos e ajustamos a solução conforme o seu negócio cresce." data-en="We monitor, evolve and adjust the solution as your business grows.">Monitoramos, evoluímos e ajustamos a solução conforme o seu negócio cresce.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="how-visual">
+        <img src="src/mountain.png" alt="DTN" />
+        <div class="how-visual-overlay"></div>
+        <div class="how-badge">
+          <div class="badge-val">2–4 sem</div>
+          <div class="badge-label" data-pt="tempo médio de entrega" data-en="average delivery time">tempo médio de entrega</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── PRODUCTS ──────────────────────────────────── -->
+<section id="products">
+  <div class="container">
+    <div class="products-header">
+      <div class="section-label" data-pt="Produtos" data-en="Products">Produtos</div>
+      <h2 data-pt="Soluções prontas para<br>escalar rápido" data-en="Ready-made solutions<br>to scale fast">Soluções prontas para<br>escalar rápido</h2>
+      <p data-pt="Produtos pré-configurados com customização para o seu setor — entregues em menos tempo com maior previsibilidade de custo." data-en="Pre-configured products with customization for your industry — delivered faster with greater cost predictability.">Produtos pré-configurados com customização para o seu setor — entregues em menos tempo com maior previsibilidade de custo.</p>
+    </div>
+    <div class="products-list">
+
+      <div class="product-card">
+        <div class="product-badge" data-pt="Produto" data-en="Product">Produto</div>
+        <h3 data-pt="DTN Atende" data-en="DTN Atende">DTN Atende</h3>
+        <p data-pt="Chatbot para WhatsApp com IA integrada. Responde dúvidas, agenda consultas, qualifica leads e escala para humano quando necessário." data-en="WhatsApp chatbot with integrated AI. Answers questions, schedules appointments, qualifies leads and escalates to human when needed.">Chatbot para WhatsApp com IA integrada. Responde dúvidas, agenda consultas, qualifica leads e escala para humano quando necessário.</p>
+        <ul class="product-features">
+          <li data-pt="Integração com WhatsApp Business API" data-en="WhatsApp Business API integration">Integração com WhatsApp Business API</li>
+          <li data-pt="IA com linguagem natural (GPT-4)" data-en="Natural language AI (GPT-4)">IA com linguagem natural (GPT-4)</li>
+          <li data-pt="Painel de histórico de conversas" data-en="Conversation history panel">Painel de histórico de conversas</li>
+          <li data-pt="Transferência para atendente humano" data-en="Transfer to human agent">Transferência para atendente humano</li>
+          <li data-pt="Relatórios semanais automáticos" data-en="Automatic weekly reports">Relatórios semanais automáticos</li>
+        </ul>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge" data-pt="Produto" data-en="Product">Produto</div>
+        <h3 data-pt="DTN Visão" data-en="DTN Vision">DTN Visão</h3>
+        <p data-pt="Dashboard de gestão para PMEs com indicadores de vendas, financeiro, clientes e operações — tudo em uma tela, atualizado em tempo real." data-en="Management dashboard for SMBs with sales, financial, customer and operations indicators — all on one screen, updated in real time.">Dashboard de gestão para PMEs com indicadores de vendas, financeiro, clientes e operações — tudo em uma tela, atualizado em tempo real.</p>
+        <ul class="product-features">
+          <li data-pt="Conexão com planilhas, ERP e CRM" data-en="Connection with spreadsheets, ERP and CRM">Conexão com planilhas, ERP e CRM</li>
+          <li data-pt="KPIs personalizáveis por setor" data-en="Customizable KPIs by industry">KPIs personalizáveis por setor</li>
+          <li data-pt="Alertas automáticos por e-mail/WhatsApp" data-en="Automatic alerts via email/WhatsApp">Alertas automáticos por e-mail/WhatsApp</li>
+          <li data-pt="Acesso em mobile e desktop" data-en="Mobile and desktop access">Acesso em mobile e desktop</li>
+        </ul>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge" data-pt="Produto" data-en="Product">Produto</div>
+        <h3 data-pt="DTN Fluxo" data-en="DTN Flow">DTN Fluxo</h3>
+        <p data-pt="Automação de processos internos: da emissão de NF ao follow-up de cobrança, passando por onboarding de clientes e rotinas operacionais." data-en="Internal process automation: from invoice generation to collection follow-up, customer onboarding and operational routines.">Automação de processos internos: da emissão de NF ao follow-up de cobrança, passando por onboarding de clientes e rotinas operacionais.</p>
+        <ul class="product-features">
+          <li data-pt="+50 integrações nativas" data-en="+50 native integrations">+50 integrações nativas</li>
+          <li data-pt="Gatilhos por tempo, evento ou condição" data-en="Triggers by time, event or condition">Gatilhos por tempo, evento ou condição</li>
+          <li data-pt="Log completo de execuções" data-en="Complete execution log">Log completo de execuções</li>
+          <li data-pt="Configuração visual sem código" data-en="Visual no-code configuration">Configuração visual sem código</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── CTA ───────────────────────────────────────── -->
+<div class="cta-band" id="contact">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-label" style="text-align:center" data-pt="Vamos começar" data-en="Let's start">Vamos começar</div>
+    <h2 data-pt="Pronto para ter uma bússola<br>para o seu negócio?" data-en="Ready to have a compass<br>for your business?">Pronto para ter uma bússola<br>para o seu negócio?</h2>
+    <p data-pt="Agende um diagnóstico gratuito. Em 30 minutos, mapeamos como a tecnologia pode transformar seus resultados." data-en="Schedule a free diagnosis. In 30 minutes, we map how technology can transform your results.">Agende um diagnóstico gratuito. Em 30 minutos, mapeamos como a tecnologia pode transformar seus resultados.</p>
+    <a href="https://wa.me/5500000000000" target="_blank">
+      <button class="btn-primary" data-pt="Agendar diagnóstico gratuito →" data-en="Schedule free diagnosis →">Agendar diagnóstico gratuito →</button>
+    </a>
+    <p style="margin-top:1.25rem;font-size:0.78rem;" data-pt="Ou envie um e-mail para <a href='mailto:contato@dtn.com.br' style='color:var(--gold)'>contato@dtn.com.br</a>" data-en="Or send an email to <a href='mailto:contato@dtn.com.br' style='color:var(--gold)'>contato@dtn.com.br</a>">Ou envie um e-mail para <a href="mailto:contato@dtn.com.br" style="color:var(--gold)">contato@dtn.com.br</a></p>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">d<span>◎</span>tn</div>
+        <div class="footer-copy" style="margin-top:0.5rem" data-pt="© 2025 DTN. Todos os direitos reservados." data-en="© 2025 DTN. All rights reserved.">© 2025 DTN. Todos os direitos reservados.</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+        <li><a href="#products" data-pt="Produtos" data-en="Products">Produtos</a></li>
+        <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+      </ul>
+      <div class="footer-contact" data-pt="<a href='mailto:contato@dtn.com.br'>contato@dtn.com.br</a>" data-en="<a href='mailto:contato@dtn.com.br'>contato@dtn.com.br</a>"><a href="mailto:contato@dtn.com.br">contato@dtn.com.br</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── LANG SCRIPT ────────────────────────────────── -->
+<script>
+  let currentLang = 'pt';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+    // Update all elements with data-pt / data-en
+    document.querySelectorAll('[data-pt][data-en]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+
+    // Toggle active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Nav background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 50
+      ? 'rgba(22, 29, 43, 0.98)'
+      : 'rgba(30, 37, 53, 0.88)';
+  });
+</script>
+</body>
+</html>
