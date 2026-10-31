@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Engineer | Trilha de carreira DTN Educação</title>
+  <meta name="description" content="Trilha de Data Engineering da DTN: pipelines, warehouse, dbt, orquestração com Airflow e qualidade de dados em produção. Para quem faz o dado chegar certo, na hora certa." />
+  <meta property="og:title" content="Data Engineer | DTN Educação" />
+  <meta property="og:description" content="Pipelines, warehouse, dbt, orquestração e qualidade de dados em produção." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="canonical" href="https://datanorth.com.br/cursos/data-engineer" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#perfil">Para quem é</a></li>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#oferta">Investimento</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <a href="../empresas.html" class="track-switcher" aria-label="Ir para o site de Empresas">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2M6 4L2 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Para empresas
+    </a>
+    <a href="#oferta" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO · TOPO DO FUNIL -->
+<section id="hero">
+  <div class="hero-mountain">
+    <img src="../assets/images/capa_2.0.png" alt="" aria-hidden="true" width="2000" height="1200" loading="eager" />
+  </div>
+  <div class="hero-content reveal">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <a href="../educacao.html">Educação</a>
+      <span class="bc-sep" aria-hidden="true">/</span>
+      <span class="bc-current">Data Engineer</span>
+    </nav>
+    <span class="hero-eyebrow">Trilha de carreira · Intermediário</span>
+    <h1 class="hero-title">Data Engineer</h1>
+    <p class="hero-sub">Pipelines, warehouse e qualidade de dados em produção. A trilha de quem garante que o dado chegue certo, no horário e sem depender de uma planilha mestra salva no desktop de alguém.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Engineering%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Falar com um consultor</a>
+      <a href="#programa" class="btn btn-ghost">Ver o programa completo</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>60 horas ao vivo</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Python + SQL</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>Pipeline em nuvem real</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section id="dor" style="padding-top:0;">
+  <div class="container">
+    <p class="section-label">O ponto de partida</p>
+    <h2 class="section-title">O problema quase nunca é o modelo. <em>É o dado.</em></h2>
+    <div class="section-rule"></div>
+    <div class="pain-grid reveal">
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+        <h3>Funciona na sua máquina, quebra em produção</h3>
+        <p>O script roda no notebook, você entrega confiante — e na segunda-feira o job falhou, o arquivo mudou de nome ou a conexão expirou.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <h3>Ninguém sabe de onde vem o número</h3>
+        <p>Três dashboards mostram três valores diferentes para "receita do mês". Sem linhagem, toda discussão vira disputa de opinião.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3>Consulta de 40 minutos que trava o time</h3>
+        <p>Sem particionamento nem modelagem, cada pergunta nova custa caro. O time de negócio desiste de explorar e volta para a planilha.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+        <h3>"Planilha mestra" como banco de dados</h3>
+        <p>Arquivo compartilhado, dez abas, versões com sufixo <em>final_v3_agoravai</em>. Toda a operação da empresa apoiada em algo que um clique apaga.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil" class="alt">
+  <div class="container">
+    <p class="section-label">Perfil</p>
+    <h2 class="section-title">Para quem é — e para quem <em>não é</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+
+      <div class="fit-col fit-col--yes">
+        <h3><span class="fit-mark" aria-hidden="true">✓</span>Esta trilha é para você se</h3>
+        <ul class="check-list">
+          <li>Já programa em Python e conhece SQL — quer construir a infraestrutura, não só consumir o dado.</li>
+          <li>É analista e cansou de depender de CSV exportado na mão para trabalhar.</li>
+          <li>É desenvolvedor backend e precisa adicionar uma camada de dados confiável ao seu produto.</li>
+          <li>Quer aprender dbt, Airflow, warehouse e cloud como conjunto — não em tutoriais soltos.</li>
+          <li>Vai responder por pipeline em produção: precisa de teste, monitoramento e custo sob controle.</li>
+        </ul>
+      </div>
+
+      <div class="fit-col fit-col--no">
+        <h3><span class="fit-mark" aria-hidden="true">✕</span>Não é para você se</h3>
+        <ul class="check-list cross-list">
+          <li>Nunca programou — comece por <a href="data-analyst.html">Data Analyst</a>, que não exige código.</li>
+          <li>Quer construir e avaliar modelo preditivo — a trilha é <a href="data-science.html">Data Science</a>.</li>
+          <li>Quer só publicar uma aplicação em nuvem, sem camada de dados — veja <a href="cloud-deployment.html">Cloud Deployment</a>.</li>
+          <li>Procura visão teórica de arquitetura sem colocar a mão em infraestrutura real.</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="prereq reveal">
+      <h4>Pré-requisitos</h4>
+      <p>Python intermediário (funções, módulos, tratamento de exceção, leitura de arquivo e API), SQL básico (SELECT, JOIN, GROUP BY) e familiaridade com linha de comando e Git. Se você domina SQL e Python no nível de automação de scripts, está pronto. Não é preciso ter experiência prévia com nuvem — começamos pelo conceito de cada serviço antes de usá-lo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="container">
+    <p class="section-label">Resultado</p>
+    <h2 class="section-title">O que você sai <em>fazendo</em></h2>
+    <div class="section-rule"></div>
+    <div class="pillars reveal">
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="4" y="6" width="12" height="28" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="24" y="6" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="24" y="22" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="16" y1="20" x2="24" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="20" x2="24" y2="28" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Desenhar a arquitetura antes de escrever código</h3>
+        <p>Batch vs. streaming, lake vs. warehouse vs. lakehouse, ELT vs. ETL. Você escolhe o padrão pelo volume, latência e custo — não pelo que está na moda.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="9" rx="13" ry="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 9v22c0 2.2 5.8 4 13 4s13-1.8 13-4V9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 20c0 2.2 5.8 4 13 4s13-1.8 13-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Modelar warehouse que aguenta pergunta nova</h3>
+        <p>Camadas raw, staging e marts; modelo dimensional, surrogate key e carga incremental. A base que permite responder amanhã o que ninguém pediu hoje.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="10" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="32" cy="10" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8" cy="30" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="32" cy="30" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="10.5" y1="12" x2="16" y2="17" stroke="currentColor" stroke-width="1.5"/><line x1="29.5" y1="12" x2="24" y2="17" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="28" x2="16" y2="23" stroke="currentColor" stroke-width="1.5"/><line x1="29.5" y1="28" x2="24" y2="23" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Orquestrar pipeline que se recupera sozinho</h3>
+        <p>Airflow com DAG versionada, retry, backfill e alerta. Tarefa idempotente: rodar duas vezes não duplica dado.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><polyline points="14 12 26 12 26 28 14 28" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6 20h8M26 20h8" stroke="currentColor" stroke-width="1.5"/><polyline points="18 17 22 20 18 23" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Transformar com dbt, testado e documentado</h3>
+        <p>Modelos SQL versionados, testes de unicidade e nulidade, documentação gerada automaticamente e linhagem visível. Transformação que deixa de ser caixa-preta.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 5l13 6v11c0 7.2-5.5 11.6-13 13-7.5-1.4-13-5.8-13-13V11z" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="14,20 18,24 26,15" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Garantir qualidade de dado com evidência</h3>
+        <p>Contrato de dado, validação na entrada, monitoramento de frescor e volume, e alerta quando algo sai do padrão — antes que o dashboard mostre errado.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6v14l8 8" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Controlar custo e performance</h3>
+        <p>Particionamento, clustering, escolha de formato (Parquet), dimensionamento de warehouse e leitura de fatura de nuvem sem susto no fim do mês.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section id="programa" class="alt">
+  <div class="container">
+    <p class="section-label">Programa</p>
+    <h2 class="section-title">Seis módulos, do desenho <em>à produção</em></h2>
+    <div class="section-rule"></div>
+    <p style="max-width:620px;font-size:15px;line-height:1.8;margin-bottom:0;">
+      Você constrói um pipeline completo ao longo da trilha — da extração à tabela consumida por um dashboard — e o coloca para rodar agendado na nuvem.
+    </p>
+    <div class="module-list reveal">
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">01</span>
+          <span class="module-title">Arquitetura de dados moderna</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>O papel do engenheiro de dados e como ele se conecta a analista, cientista e produto</li>
+            <li>Batch, near real-time e streaming: quando cada um se justifica</li>
+            <li>Data warehouse, data lake e lakehouse — diferenças reais, não de slide</li>
+            <li>ELT vs. ETL e a arquitetura moderna com separação de camadas</li>
+            <li>Visão geral do stack: extração, armazenamento, transformação, orquestração</li>
+          </ul>
+          <p class="module-outcome">Entrega: desenho de arquitetura do pipeline do seu projeto final.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">02</span>
+          <span class="module-title">Ingestão e extração de dados</span>
+          <span class="module-hours">10h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Consumo de API REST com paginação, rate limit e retry</li>
+            <li>Extração de banco relacional: full load vs. incremental com marca d'água</li>
+            <li>Arquivos: CSV, JSON e Parquet — formatos, compressão e quando usar cada um</li>
+            <li>CDC (change data capture) na prática e suas limitações</li>
+            <li>Tratamento de falha na extração: o que fazer quando a fonte cai</li>
+          </ul>
+          <p class="module-outcome">Entrega: extratores do projeto final, com carga incremental funcionando.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">03</span>
+          <span class="module-title">Armazenamento e modelagem dimensional</span>
+          <span class="module-hours">10h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Camadas raw, staging e marts: por que separar e o que vive em cada uma</li>
+            <li>Modelagem dimensional: fato, dimensão, granularidade e conformidade</li>
+            <li>Slowly changing dimensions (SCD tipo 1 e 2) e surrogate keys</li>
+            <li>Armazenamento em nuvem: buckets, organização de pastas e ciclo de vida</li>
+            <li>Warehouse na nuvem: conceitos, cargas e separação compute/storage</li>
+          </ul>
+          <p class="module-outcome">Entrega: modelo dimensional do projeto final criado no warehouse.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">04</span>
+          <span class="module-title">Transformação com dbt e qualidade de dados</span>
+          <span class="module-hours">12h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>dbt Core: modelos SQL, refs, macros e estrutura de projeto</li>
+            <li>Testes: not_null, unique, relationships e testes customizados</li>
+            <li>Documentação gerada e grafo de linhagem</li>
+            <li>Contrato de dado e versionamento de modelo</li>
+            <li>Materializações: view, table, incremental — custo e frescor</li>
+            <li>Observabilidade: frescor, volume e anomalia monitorados</li>
+          </ul>
+          <p class="module-outcome">Entrega: camada de transformação com testes passando e documentação publicada.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">05</span>
+          <span class="module-title">Orquestração e pipeline em produção</span>
+          <span class="module-hours">12h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Airflow: DAG, operator, sensor, schedule e dependências</li>
+            <li>Idempotência: por que rodar de novo não pode duplicar dado</li>
+            <li>Retry, timeout, backfill e tratamento de falha</li>
+            <li>Docker para rodar o pipeline de forma reprodutível</li>
+            <li>CI/CD para dados: pull request, teste automatizado e deploy</li>
+            <li>Segredos, credenciais e permissões mínimas</li>
+          </ul>
+          <p class="module-outcome">Entrega: pipeline do projeto final orquestrado e agendado.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">06</span>
+          <span class="module-title">Performance, custo e projeto final</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Particionamento, clustering e ordenação: acelerando consulta grande</li>
+            <li>Leitura de plano de execução e identificação de gargalo</li>
+            <li>Custo em nuvem: o que gera fatura e como reduzir sem perder capacidade</li>
+            <li>SLA, alerta e plantão: como saber que quebrou antes do usuário</li>
+            <li>Apresentação final do pipeline com feedback individual</li>
+          </ul>
+          <p class="module-outcome">Entrega: pipeline completo em produção, documentado e apresentado.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <p class="section-label">Investimento</p>
+    <h2 class="section-title">O que está <em>incluído</em></h2>
+    <div class="section-rule"></div>
+    <span class="scarcity-badge"><span class="dot" aria-hidden="true"></span>Turmas com vagas limitadas para manter o acompanhamento</span>
+    <div class="offer-grid reveal">
+
+      <div class="offer-card">
+        <h3>Trilha completa de Data Engineering</h3>
+        <p class="offer-lead">60 horas ao vivo, em turma pequena, com ambiente em nuvem para praticar e um pipeline real agendado ao final da trilha.</p>
+        <ul class="offer-list">
+          <li>60h de aulas ao vivo via Google Meet (não é vídeo gravado genérico)</li>
+          <li>Correção individual dos exercícios de cada módulo</li>
+          <li>Projeto final: pipeline completo da extração ao consumo</li>
+          <li>Guia de configuração do ambiente em nuvem com faixa gratuita</li>
+          <li>Repositório com DAGs, modelos dbt e Dockerfiles de referência</li>
+          <li>Grupo de dúvidas com o instrutor durante a trilha</li>
+          <li>Certificado de conclusão com carga horária</li>
+          <li>Gravação das aulas por 6 meses para revisão</li>
+        </ul>
+        <div class="offer-price">
+          <div class="op-label">Investimento</div>
+          <div class="op-value">Sob consulta</div>
+          <p class="op-note">Condições e parcelamento definidos na conversa, conforme turma individual ou em grupo. Emitimos nota fiscal e atendemos pagamento por empresa.</p>
+        </div>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Engineering%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Receber valores e próximas turmas
+        </a>
+        <p class="offer-fine">Garantia de 7 dias: reembolso integral, sem burocracia (CDC art. 49).</p>
+      </div>
+
+      <aside class="offer-side reveal" aria-label="Garantias e detalhes da trilha">
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <div>
+            <div class="ic-label">Risco zero</div>
+            <div class="ic-value">7 dias de garantia incondicional. Se não for para você, devolvemos 100%.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Dedicação semanal</div>
+            <div class="ic-value">Cerca de 6h de aula + 4h de prática. Duração típica: 10 semanas.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+          <div>
+            <div class="ic-label">Custo de nuvem</div>
+            <div class="ic-value">Praticamos em faixa gratuita. Ensinamos a dimensionar para a conta não surpreender.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+          <div>
+            <div class="ic-label">Turma pequena</div>
+            <div class="ic-value">Vagas limitadas para que todo exercício seja corrigido um a um.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg></span>
+          <div>
+            <div class="ic-label">Certificado</div>
+            <div class="ic-value">Emitido ao final, com carga horária e conteúdo programático.</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Antes de você <em>se inscrever</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+
+      <details class="faq-item">
+        <summary>Vocês usam qual nuvem?</summary>
+        <div class="faq-body">Trabalhamos com AWS como referência principal, porque é a mais presente no mercado brasileiro. Cada conceito é apresentado de forma neutra e mostramos o serviço equivalente em Azure e GCP — assim você não fica preso a um provedor. O armazenamento, o warehouse e a orquestração são os mesmos em qualquer um deles.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Vou ter custo de nuvem durante o curso?</summary>
+        <div class="faq-body">O projeto é dimensionado para caber na faixa gratuita dos provedores, e ensinamos a configurar alerta de custo no primeiro dia de prática em nuvem. Se a sua conta não tiver acesso ao free tier, o gasto típico do projeto final fica na casa de poucos reais — e mostramos como desligar os recursos ao terminar.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>dbt e Airflow são ferramentas pagas?</summary>
+        <div class="faq-body">Usamos as versões open-source: dbt Core e Apache Airflow, ambas gratuitas e amplamente usadas no mercado. As versões pagas (dbt Cloud, MWAA/Cloud Composer) são conveniências de gestão — explicamos quando fazem sentido, mas não são necessárias para a trilha.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Sou analista. Essa é a evolução natural?</summary>
+        <div class="faq-body">Para muitos, sim. Se você já domina SQL e sente o teto de depender de extração manual, engenharia de dados é o próximo passo lógico — e o mercado brasileiro tem mais vaga aberta para engenheiro do que candidatos qualificados. O requisito é ter Python intermediário antes de começar.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Qual a diferença entre Data Engineer e ML Engineer?</summary>
+        <div class="faq-body">O engenheiro de dados constrói a base confiável que todos consomem: pipelines, warehouse e qualidade. O ML Engineer leva modelo para produção: serving, registro de modelo, monitoramento de drift e retreino. Um depende do outro — e a trilha de <a href="ml-engineer.html">ML Engineer</a> pressupõe a base de dados já funcionando.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>E se eu perder uma aula?</summary>
+        <div class="faq-body">Todas as aulas ficam gravadas e disponíveis por 6 meses. Como os módulos são cumulativos, recomendamos não acumular atraso maior que uma semana; se acontecer, combinamos uma sessão de reposição.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="comecar" style="padding-bottom:0;">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Engenheiro de dados é a vaga que menos tem candidato pronto.</h2>
+      <p>Todo mundo aprendeu a fazer gráfico. Poucos sabem construir a base que não quebra às três da manhã. É exatamente aí que esta trilha te coloca.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Engineering%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero os valores e a próxima turma</a>
+        <a href="#contato-curso" class="btn btn-ghost">Prefiro preencher o formulário</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Resposta em 24h úteis</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado incluso</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-curso">
+  <div class="container">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos avaliar o seu <em>ponto de partida?</em></h2>
+    <div class="section-rule"></div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" data-wa="5511947350715" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome-curso">Nome *</label>
+            <input type="text" id="nome-curso" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="email-curso">E-mail</label>
+            <input type="email" id="email-curso" name="email" placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp-curso">WhatsApp</label>
+            <input type="tel" id="whatsapp-curso" name="whatsapp" placeholder="(11) 99999-9999" />
+          </div>
+          <div class="form-group">
+            <label for="interesse-curso">Trilha de interesse</label>
+            <select id="interesse-curso" name="interesse">
+              <option selected>Data Engineer</option>
+              <option>Data Science</option>
+              <option>Data Analyst</option>
+              <option>ML Engineer</option>
+              <option>IA Generativa</option>
+              <option>Deep Learning Engineering</option>
+              <option>Cloud Deployment</option>
+              <option>Data Product Manager</option>
+              <option>Ainda não sei — quero orientação</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensagem-curso">Seu contexto atual</label>
+          <textarea id="mensagem-curso" name="mensagem" placeholder="Qual o seu nível de Python e SQL hoje? Já trabalhou com pipeline ou banco de dados?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar via WhatsApp</button>
+        <p class="form-hint">Ao enviar, você será redirecionado para o WhatsApp com a mensagem pré-preenchida. Seus dados não são armazenados neste site — veja a <a href="../privacidade.html" style="text-decoration:underline;">Política de Privacidade</a>.</p>
+      </form>
+
+      <aside class="contact-aside reveal" aria-label="Canais diretos de contato">
+        <span class="response-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respondemos em até 24h úteis
+        </span>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div>
+            <div class="ic-label">WhatsApp</div>
+            <div class="ic-value"><a href="https://wa.me/5511947350715" target="_blank" rel="noopener">(11) 94735-0715</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <div>
+            <div class="ic-label">E-mail</div>
+            <div class="ic-value"><a href="mailto:dtn.tecnology@gmail.com">dtn.tecnology@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+          <div>
+            <div class="ic-label">LinkedIn</div>
+            <div class="ic-value"><a href="https://www.linkedin.com/in/datanorth-dtn-tecnology-9ba758418/" target="_blank" rel="noopener">/datanorth-dtn</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Horário</div>
+            <div class="ic-value">Segunda a sexta, 9h às 18h</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRAS TRILHAS -->
+<section id="outras" class="alt">
+  <div class="container">
+    <p class="section-label">Outras trilhas</p>
+    <h2 class="section-title">Talvez o seu caminho seja <em>outro</em></h2>
+    <div class="section-rule"></div>
+    <div class="trail-grid reveal">
+      <a href="data-science.html" class="trail-link">
+        <span class="tl-name">Data Science</span>
+        <span class="tl-level">Intermediário · 60h</span>
+      </a>
+      <a href="data-analyst.html" class="trail-link">
+        <span class="tl-name">Data Analyst</span>
+        <span class="tl-level">Iniciante · 40h</span>
+      </a>
+      <span class="trail-link current" aria-current="page">
+        <span class="tl-name">Data Engineer</span>
+        <span class="tl-level">Você está aqui · 60h</span>
+      </span>
+      <a href="ml-engineer.html" class="trail-link">
+        <span class="tl-name">ML Engineer</span>
+        <span class="tl-level">Avançado · 60h</span>
+      </a>
+      <a href="ia-generativa.html" class="trail-link">
+        <span class="tl-name">IA Generativa</span>
+        <span class="tl-level">Todos os níveis · 32h</span>
+      </a>
+      <a href="deep-learning-engineering.html" class="trail-link">
+        <span class="tl-name">Deep Learning Engineering</span>
+        <span class="tl-level">Avançado · 70h</span>
+      </a>
+      <a href="cloud-deployment.html" class="trail-link">
+        <span class="tl-name">Cloud Deployment</span>
+        <span class="tl-level">Intermediário · 40h</span>
+      </a>
+      <a href="data-product-manager.html" class="trail-link">
+        <span class="tl-name">Data Product Manager</span>
+        <span class="tl-level">Iniciante · 28h</span>
+      </a>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:28px;">
+      Em dúvida entre duas trilhas? <a href="../educacao.html#contato-edu" style="font-weight:600;">Fale conosco</a> e montamos o caminho com você.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:dtn.tecnology@gmail.com">E-mail</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20trilha%20de%20Data%20Engineering%20da%20DTN." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp sobre Data Engineer">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
