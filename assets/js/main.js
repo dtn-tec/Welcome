@@ -5,6 +5,7 @@
 
 (function () {
   'use strict';
+  document.documentElement.classList.add('js');
 
   /* ── 1. Nav toggle (mobile) ────────────── */
   var toggle = document.querySelector('.nav-toggle');
@@ -42,9 +43,8 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
   }
 
-  /* ── 3. Form → WhatsApp ─────────────────── */
-  var form = document.querySelector('.contact-form');
-  if (form) {
+  /* ── 3. Form → WhatsApp (todas as forms da página) ── */
+  document.querySelectorAll('.contact-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var data = new FormData(form);
@@ -55,20 +55,22 @@
       var interesse = (data.get('interesse') || '').toString().trim();
       var mensagem  = (data.get('mensagem')  || '').toString().trim();
 
-      if (!nome) {
-        var nomeInput = form.querySelector('[name="nome"]');
-        if (nomeInput) nomeInput.focus();
+      var nomeInput = form.querySelector('[name="nome"]');
+      if (nomeInput && !nome) { nomeInput.focus(); return; }
+      if (!nomeInput && !email) {
+        var emailInput = form.querySelector('[name="email"]');
+        if (emailInput) emailInput.focus();
         return;
       }
 
-      var lines = ['Olá! Meu nome é ' + nome + '.'];
+      var lines = [nome ? 'Olá! Meu nome é ' + nome + '.' : 'Olá! Quero receber o material gratuito.'];
       if (empresa)   lines.push('Empresa: ' + empresa);
       if (email)     lines.push('E-mail: ' + email);
       if (whatsapp)  lines.push('WhatsApp: ' + whatsapp);
       if (interesse) lines.push('Interesse: ' + interesse);
       if (mensagem)  lines.push('', 'Mensagem: ' + mensagem);
 
-      var text = lines.join('%0A');
+      var text = encodeURIComponent(lines.join('\n'));
       var number = form.dataset.wa || '5511947350715';
       window.open('https://wa.me/' + number + '?text=' + text, '_blank');
 
@@ -79,6 +81,18 @@
         btn.disabled = true;
         setTimeout(function () { btn.textContent = original; btn.disabled = false; }, 2500);
       }
+    });
+  });
+
+  /* ── 3b. Ementa: abrir/fechar todos os módulos ── */
+  var sylToggle = document.querySelector('.syllabus-toggle');
+  if (sylToggle) {
+    sylToggle.addEventListener('click', function () {
+      var mods = document.querySelectorAll('.syllabus .module');
+      var anyClosed = Array.prototype.some.call(mods, function (m) { return !m.open; });
+      mods.forEach(function (m) { m.open = anyClosed; });
+      sylToggle.textContent = anyClosed ? 'Recolher todos' : 'Expandir todos';
+      sylToggle.setAttribute('aria-expanded', String(anyClosed));
     });
   }
 
