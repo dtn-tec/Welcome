@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Science: do dado ao modelo em produção | DTN Educação</title>
+  <meta name="description" content="Curso de Data Science em 10 módulos: pré-processamento, modelos, métricas, tuning, explainability, deploy e monitoramento de drift. Ementa completa." />
+  <meta property="og:title" content="Data Science: do dado ao modelo em produção · DTN" />
+  <meta property="og:description" content="O ciclo completo de um projeto de Machine Learning, em Python, em 10 módulos. Veja a ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Data Science</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Data Science: do dado bruto ao <em>modelo em produção</em></h1>
+        <p class="cp-lead">
+          Você vai percorrer o ciclo inteiro de um projeto de Machine Learning, na ordem em que ele acontece no trabalho: preparar os dados, treinar e comparar modelos, escolher a métrica certa, otimizar, explicar as previsões, publicar o modelo como API e monitorar a performance depois que ele está no ar.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com um entregável em código. No fim, você tem um projeto completo no seu GitHub, do notebook ao deploy.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>python</span><span>pandas</span><span>scikit-learn</span><span>xgboost</span><span>lightgbm</span>
+          <span>optuna</span><span>mlflow</span><span>shap</span><span>fastapi</span><span>docker</span><span>evidently</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Intermediário</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Python básico</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Notebooks + código</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos seguem o <em>pipeline real</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Nada de tópicos soltos. Cada etapa usa o resultado da anterior, então você entende por que cada decisão importa lá na frente. Um erro no pré-processamento aparece na métrica, um modelo sem monitoramento degrada em produção.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">01</div><strong>Pré-processamento</strong><small>dados limpos, sem leakage</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>Modelos</strong><small>baseline e comparação</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>Métricas</strong><small>avaliar do jeito certo</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>Tuning</strong><small>otimização com método</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>Explainability</strong><small>por que o modelo decide</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>Deploy</strong><small>modelo vira API</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>Monitoramento</strong><small>drift e retreino</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>Projetos</strong><small>tudo junto, ponta a ponta</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="18" cy="16" r="3"/></svg>
+        <h3>Montar pipelines reprodutíveis</h3>
+        <p>Pré-processamento e modelo encapsulados em um único <code>Pipeline</code>, que roda igual no treino, na validação e em produção.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <h3>Escolher e defender um modelo</h3>
+        <p>Comparar algoritmos com validação cruzada, escolher a métrica que reflete o custo do erro e justificar o threshold.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>
+        <h3>Otimizar sem enganar a si mesmo</h3>
+        <p>Busca bayesiana de hiperparâmetros com Optuna, experimentos registrados e sem overfitting na validação.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Explicar previsões para o negócio</h3>
+        <p>SHAP, importância por permutação e PDP para mostrar por que o modelo decidiu, para um gestor ou um auditor.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V4h8v3"/><path d="M7 13h4M7 16h7"/></svg>
+        <h3>Colocar o modelo no ar</h3>
+        <p>Uma API com FastAPI, validação de entrada e container Docker, pronta para ser consumida por outro sistema.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h3>Saber quando o modelo piorou</h3>
+        <p>Detectar data drift e concept drift, criar alertas e definir uma estratégia de retreino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">O ciclo de vida de um projeto de dados e o ambiente de trabalho</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Etapas de um projeto de ML: do problema de negócio ao modelo monitorado</li>
+              <li>Tipos de problema: classificação, regressão e clusterização</li>
+              <li>Transformar uma pergunta de negócio em métrica mensurável</li>
+              <li>Setup: Python, ambiente virtual, Jupyter, VS Code e Git</li>
+              <li>Apresentação do dataset que acompanha o curso inteiro</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Ambiente configurado, repositório criado e o problema do curso definido com objetivo e métrica de sucesso.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Preprocessing<span class="module-sub">Preparar dados que um modelo consegue aprender, sem vazamento</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Análise exploratória orientada a decisões, não a gráficos bonitos</li>
+              <li>Valores ausentes: quando remover, quando imputar e como</li>
+              <li>Outliers: identificar, entender e tratar</li>
+              <li>Encoding de categorias: one-hot, ordinal e target encoding</li>
+              <li>Escalonamento e transformações de variáveis</li>
+              <li>Feature engineering a partir do conhecimento do problema</li>
+              <li>Split treino/validação/teste e como evitar data leakage</li>
+              <li>Dados desbalanceados: pesos de classe e reamostragem</li>
+              <li><code>Pipeline</code> e <code>ColumnTransformer</code> do scikit-learn</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um pipeline de pré-processamento reprodutível, que transforma dado bruto em dado pronto para o modelo com uma única chamada.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">Modelos<span class="module-sub">Como cada algoritmo funciona e quando usar cada um</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Baseline: o modelo mais simples que você precisa superar</li>
+              <li>Regressão linear e logística, regularização L1/L2</li>
+              <li>Árvores de decisão e o trade-off viés × variância</li>
+              <li>Ensembles: Random Forest e Gradient Boosting (XGBoost, LightGBM)</li>
+              <li>KNN e SVM: intuição e limites</li>
+              <li>Não supervisionado: K-Means e PCA</li>
+              <li>Critérios práticos de escolha: dados, interpretabilidade, custo e latência</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma comparação de modelos sobre o mesmo pipeline, com resultados lado a lado e justificativa da escolha.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">Métricas<span class="module-sub">Avaliar um modelo do jeito que o negócio sente o erro</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Matriz de confusão, precision, recall e F1</li>
+              <li>ROC-AUC × PR-AUC e quando cada uma engana</li>
+              <li>Escolha de threshold a partir do custo de falso positivo e falso negativo</li>
+              <li>Calibração de probabilidades</li>
+              <li>Regressão: MAE, RMSE, MAPE e R²</li>
+              <li>Validação cruzada: k-fold, estratificada, agrupada e temporal</li>
+              <li>Traduzir métrica técnica em impacto de negócio</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um relatório de avaliação com a métrica escolhida, o threshold justificado e a estimativa de impacto.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">Hyperparameter Tuning<span class="module-sub">Extrair o máximo do modelo com método, e sem overfitting</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>O que são hiperparâmetros e quais realmente importam em cada modelo</li>
+              <li>Grid Search e Random Search: custo e limitações</li>
+              <li>Otimização bayesiana com Optuna</li>
+              <li>Definição do espaço de busca, early stopping e pruning</li>
+              <li>Nested cross-validation e o risco de overfitting na validação</li>
+              <li>Registro de experimentos com MLflow</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um modelo otimizado, com cada experimento registrado e o ganho sobre o baseline documentado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Explainability<span class="module-sub">Entender e comunicar por que o modelo decide o que decide</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Explicação global × local</li>
+              <li>Feature importance nativa e permutation importance</li>
+              <li>SHAP: summary, dependence e waterfall plots</li>
+              <li>Partial Dependence (PDP) e ICE</li>
+              <li>Usar explicações para encontrar bugs, leakage e vieses</li>
+              <li>Como apresentar o modelo para quem não é técnico</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um relatório de explicabilidade com os principais fatores do modelo e a explicação de previsões individuais.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">Deploy<span class="module-sub">Do notebook para um serviço que outros sistemas consomem</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Serializar e versionar o pipeline treinado</li>
+              <li>Inferência em batch × tempo real: quando usar cada uma</li>
+              <li>API de predição com FastAPI</li>
+              <li>Validação de entrada com Pydantic</li>
+              <li>Containerização com Docker</li>
+              <li>Publicação em nuvem e boas práticas de configuração</li>
+              <li>Testes básicos do serviço de modelo</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>O modelo do curso rodando como API em um container, com endpoint <code>/predict</code> documentado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Drift &amp; Monitoring<span class="module-sub">Manter o modelo confiável depois que ele está no ar</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Por que modelos degradam: data drift × concept drift</li>
+              <li>Detecção estatística: PSI, teste KS e distâncias de distribuição</li>
+              <li>Monitorar performance quando o rótulo chega atrasado</li>
+              <li>Relatórios de monitoramento com Evidently</li>
+              <li>Alertas, logging de predições e rastreabilidade</li>
+              <li>Estratégias de retreino: por calendário, por gatilho ou contínuo</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um relatório de monitoramento que compara dados de produção com os de treino e sinaliza drift.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Projects<span class="module-sub">Aplicar o pipeline inteiro em problemas novos</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <!-- AJUSTE: troque pelos projetos que você realmente aplica -->
+            <ul>
+              <li>Projeto de classificação ponta a ponta (ex.: churn ou risco de crédito)</li>
+              <li>Projeto de regressão ponta a ponta (ex.: previsão de preço ou demanda)</li>
+              <li>Code review dos projetos com feedback individual</li>
+              <li>Organização do repositório e README que um recrutador entende</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Projetos completos publicados no seu GitHub, do dado bruto à API monitorada, prontos para portfólio.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Próximos passos<span class="module-sub">Para onde ir depois do curso</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Trilhas de aprofundamento: MLOps, séries temporais, deep learning e LLMs</li>
+              <li>Como apresentar seus projetos em entrevistas técnicas</li>
+              <li>Perguntas frequentes de entrevista para cientista de dados</li>
+              <li>Fontes de estudo recomendadas e como continuar praticando</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um plano de estudo pessoal para os próximos meses, de acordo com o seu objetivo.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você já escreve Python básico e usa pandas, mesmo que ainda devagar</li>
+          <li>Já treinou um modelo em tutorial, mas não sabe avaliar, otimizar ou publicar</li>
+          <li>Trabalha com dados (analista, engenheiro, dev) e quer migrar para ciência de dados</li>
+          <li>Quer um projeto de portfólio que vá além do notebook</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você nunca programou. Nesse caso, comece por <a href="../educacao.html#cursos">Análise de Dados com Python</a></li>
+          <li>Procura um curso focado em teoria matemática e demonstrações</li>
+          <li>Quer começar por deep learning ou LLMs antes do ML clássico</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20se%20tenho%20o%20n%C3%ADvel%20para%20o%20curso%20de%20Data%20Science." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com código</h3>
+        <p>Aulas online pelo Google Meet. O código é escrito durante a aula, não lido em slide.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Notebooks, scripts e o repositório final de cada módulo, para consultar quando precisar.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Quanto de matemática eu preciso saber?</summary>
+        <div class="faq-body">Matemática do ensino médio. Os conceitos de estatística e álgebra que os modelos usam são explicados dentro das aulas, sempre com o código ao lado. O foco é entender o suficiente para tomar boas decisões, não fazer demonstrações.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual computador eu preciso?</summary>
+        <div class="faq-body">Qualquer computador que rode Python e um navegador. Os datasets do curso são de tamanho moderado. Se a sua máquina for limitada, dá para acompanhar pelo Google Colab.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Vou usar dados reais?</summary>
+        <div class="faq-body">Sim. Os módulos usam datasets públicos com os problemas comuns de dados reais: valores ausentes, categorias bagunçadas, desbalanceamento e drift.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O curso cobre deep learning ou LLMs?</summary>
+        <div class="faq-body">Não como tema principal. O curso é sobre Machine Learning clássico em dados tabulares, que é a maior parte do trabalho de um cientista de dados. O módulo 09 indica o caminho para aprofundar em deep learning e LLMs depois.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Data Science: do dado ao modelo em produção</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, do setup ao monitoramento</li>
+          <li>Notebooks e código de todos os módulos</li>
+          <li>Projetos ponta a ponta com code review</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20curso%20de%20Data%20Science%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Data%20Science" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>Data Science · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Data%20Science." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
