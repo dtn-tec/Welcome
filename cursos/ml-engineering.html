@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machine Learning Engineering: modelos confiáveis em produção | DTN Educação</title>
+  <meta name="description" content="Curso de Machine Learning Engineering em 10 módulos: software engineering para ML, pipelines, experiment tracking, feature store, serving, MLOps, monitoramento e escalabilidade. Ementa completa." />
+  <meta property="og:title" content="Machine Learning Engineering: modelos confiáveis em produção · DTN" />
+  <meta property="og:description" content="A engenharia que transforma um modelo de notebook em um sistema que roda, escala e é monitorado. 10 módulos, ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Machine Learning Engineering</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Machine Learning Engineering: modelos <em>confiáveis em produção</em></h1>
+        <p class="cp-lead">
+          Você vai aprender a engenharia que transforma um modelo de notebook em um sistema: código testado, pipelines reprodutíveis, experimentos rastreados, features consistentes entre treino e produção, deploy automatizado, monitoramento e escala com custo controlado.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com um entregável em código. No fim, você tem um sistema de ML completo no seu GitHub, com CI/CD, serving e monitoramento.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>python</span><span>pytest</span><span>git</span><span>docker</span><span>scikit-learn</span><span>mlflow</span><span>dvc</span><span>feast</span><span>fastapi</span><span>kubernetes</span><span>github actions</span><span>prometheus</span><span>grafana</span><span>evidently</span><span>onnx</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Avançado</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Python e ML básico</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Código + infraestrutura</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos seguem o <em>ciclo de vida do modelo</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Você trabalha em um único sistema do começo ao fim. O código refatorado no módulo 01 vira o pipeline do 02, que registra experimentos no 03, consome features do 04 e é publicado no 05. Depois, o 06 automatiza tudo, o 07 vigia e o 08 escala.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">01</div><strong>Engenharia</strong><small>código testável</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>Pipelines</strong><small>treino reprodutível</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>Tracking</strong><small>experimentos e registry</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>Features</strong><small>feature store e DVC</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>Serving</strong><small>modelo vira serviço</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>MLOps</strong><small>CI/CD e retreino</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>Monitoramento</strong><small>drift e alertas</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>Escala</strong><small>performance e custo</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3>Escrever código de ML de produção</h3>
+        <p>Sair do notebook para um pacote Python testado, tipado e revisável, que outras pessoas conseguem manter.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+        <h3>Rastrear e versionar tudo</h3>
+        <p>Código, dados, features, experimentos e modelos versionados, para saber exatamente como cada modelo foi gerado.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V4h8v3"/><path d="M7 13h4M7 16h7"/></svg>
+        <h3>Servir modelos com segurança</h3>
+        <p>APIs em container com estratégias de deploy como canary e shadow, sem derrubar o que já está funcionando.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><polyline points="21 3 21 8 16 8"/><polyline points="3 21 3 16 8 16"/></svg>
+        <h3>Automatizar o ciclo de vida</h3>
+        <p>CI/CD que testa, treina, registra e publica o modelo a cada mudança, com critérios de aprovação.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h3>Monitorar modelos em produção</h3>
+        <p>Métricas de serviço e de modelo, detecção de drift e alertas que disparam retreino.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        <h3>Escalar com custo controlado</h3>
+        <p>Otimizar inferência, escalar no Kubernetes e medir o custo de cada predição.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">O papel do ML Engineer e por que modelos falham em produção</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Data Scientist × ML Engineer × Data Engineer: onde cada um atua</li>
+              <li>Por que tantos modelos não chegam à produção, ou não sobrevivem nela</li>
+              <li>Ciclo de vida de um modelo em produção</li>
+              <li>Níveis de maturidade de MLOps</li>
+              <li>A arquitetura que vamos construir ao longo do curso</li>
+              <li>Setup: Python, Git, Docker e ambiente reprodutível</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Repositório do projeto criado, com estrutura de pastas e ambiente reprodutível.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Fundamentos de Software Engineering<span class="module-sub">Código de ML que outras pessoas conseguem manter</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Do notebook ao pacote Python: módulos e estrutura de projeto</li>
+              <li>Tipagem, linting e formatação (ruff, mypy)</li>
+              <li>Testes com pytest: unitários, de dados e de modelo</li>
+              <li>Git no dia a dia de um time: branches, pull requests e code review</li>
+              <li>Gerenciamento de dependências e ambientes</li>
+              <li>Configuração, logging e tratamento de erros</li>
+              <li>Padrões de design úteis em sistemas de ML</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>O código de um notebook refatorado em pacote Python, com testes, lint e CI básico.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">ML Pipelines e Feature Engineering<span class="module-sub">Do dado bruto ao modelo treinado, de forma reprodutível</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Pipelines de treino modulares: ingestão, validação, features, treino e avaliação</li>
+              <li>Feature engineering pensada para produção</li>
+              <li>Training-serving skew: o que é e como evitar</li>
+              <li>Transformações customizadas compatíveis com scikit-learn</li>
+              <li>Validação de dados na entrada do pipeline</li>
+              <li>Parametrização com arquivos de configuração</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um pipeline de treino executável por linha de comando, parametrizado e testado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">Experiment Tracking e Model Registry<span class="module-sub">Saber qual modelo está no ar e como ele foi gerado</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Registro de parâmetros, métricas e artefatos com MLflow</li>
+              <li>Comparação de experimentos</li>
+              <li>Reprodutibilidade: seeds, versão do código e versão dos dados</li>
+              <li>Model registry: versões, estágios e fluxo de aprovação</li>
+              <li>Assinatura do modelo e metadados</li>
+              <li>Linhagem: do modelo em produção ao dado de treino</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Experimentos rastreados no MLflow e o melhor modelo registrado com versão e metadados.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">Feature Store e Data Versioning<span class="module-sub">Features iguais no treino e na produção</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Versionamento de dados com DVC</li>
+              <li>Snapshots dos datasets de treino</li>
+              <li>Feature store: qual problema ela resolve</li>
+              <li>Features offline × online</li>
+              <li>Point-in-time correctness e vazamento temporal</li>
+              <li>Feast na prática</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Dataset versionado com DVC e features servidas por uma feature store, para treino e inferência.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Model Serving e Deployment<span class="module-sub">Colocar o modelo para responder requisições</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Inferência batch × online × streaming</li>
+              <li>API de predição com FastAPI e empacotamento em Docker</li>
+              <li>Estratégias de deploy: blue-green, canary e shadow</li>
+              <li>Testes de contrato e testes de carga da API</li>
+              <li>Visão geral de servidores de modelo: BentoML, TorchServe e Triton</li>
+              <li>Rollback: como voltar atrás com segurança</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>O modelo servido em container, com API testada e uma estratégia de deploy definida.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">MLOps e Automação<span class="module-sub">Treinar, testar e publicar sem passos manuais</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>CI/CD para ML com GitHub Actions</li>
+              <li>Testes automatizados de dados, de modelo e de API</li>
+              <li>Continuous training: retreino automatizado</li>
+              <li>Orquestração de pipelines de ML</li>
+              <li>Promoção de modelos com critérios de aprovação</li>
+              <li>Infraestrutura como código: visão prática</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um pipeline de CI/CD que testa, treina, registra e publica o modelo a cada mudança.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Model Monitoring e Observability<span class="module-sub">Saber que o modelo piorou antes do negócio perceber</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Métricas operacionais: latência, throughput e taxa de erro</li>
+              <li>Métricas de modelo: drift de dados, de predição e de conceito</li>
+              <li>Monitorar quando o rótulo verdadeiro chega atrasado</li>
+              <li>Prometheus e Grafana para métricas e dashboards</li>
+              <li>Relatórios de drift com Evidently</li>
+              <li>Alertas e gatilhos de retreino</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um dashboard com métricas do serviço e do modelo, com alertas configurados.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Escalabilidade e Performance<span class="module-sub">Servir mais requisições, mais rápido e mais barato</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Profiling de inferência: onde o tempo é gasto</li>
+              <li>Otimizações: batching, caching, quantização e ONNX</li>
+              <li>Kubernetes: pods, deployments e autoscaling</li>
+              <li>GPU × CPU: quando compensa</li>
+              <li>Inferência em batch distribuída: visão geral de Ray e Spark</li>
+              <li>Custo por predição e como reduzi-lo</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Comparação de latência e custo antes e depois das otimizações, com o serviço escalando automaticamente.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Projetos End-to-End<span class="module-sub">Um sistema de ML completo, do treino ao monitoramento</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <!-- AJUSTE: troque pelo projeto que você realmente aplica -->
+            <ul>
+              <li>Projeto ponta a ponta: pipeline, registry, serving, CI/CD e monitoramento</li>
+              <li>Design doc: documentar a arquitetura e as decisões</li>
+              <li>Code review individual</li>
+              <li>System design de ML para entrevistas técnicas</li>
+              <li>Próximos passos: LLMOps e plataformas de ML</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um sistema de ML completo publicado no seu GitHub, com CI/CD, serving e monitoramento.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você é cientista de dados e seus modelos ficam parados no notebook</li>
+          <li>É engenheiro de software e quer trabalhar com Machine Learning</li>
+          <li>É engenheiro de dados e precisa levar modelos para produção</li>
+          <li>Seu time precisa estruturar MLOps e não sabe por onde começar</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você nunca treinou um modelo. Comece por <a href="data-science.html">Data Science</a></li>
+          <li>Quer estudar arquiteturas de redes neurais. Veja <a href="deep-learning.html">Deep Learning</a></li>
+          <li>Procura um curso introdutório de programação</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20saber%20se%20tenho%20o%20n%C3%ADvel%20para%20o%20curso%20de%20Machine%20Learning%20Engineering." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com código</h3>
+        <p>Aulas online pelo Google Meet. O sistema é construído durante a aula, não lido em slide.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Código, configurações de CI/CD e infraestrutura e o repositório final de cada módulo.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Preciso saber Machine Learning antes?</summary>
+        <div class="faq-body">Sim, o básico: treinar e avaliar um modelo com scikit-learn. Se ainda não chegou lá, o curso de <a href="data-science.html">Data Science</a> cobre exatamente isso.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso saber Kubernetes ou DevOps?</summary>
+        <div class="faq-body">Não. Docker, CI/CD e Kubernetes são ensinados na medida do que um ML Engineer precisa no dia a dia.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual a diferença para o curso de Data Science?</summary>
+        <div class="faq-body">Data Science ensina a criar, avaliar e explicar modelos, com um primeiro deploy. ML Engineering trata da engenharia para operar esses modelos com confiabilidade e escala: testes, CI/CD, feature store, registry, observabilidade e performance.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual computador eu preciso?</summary>
+        <div class="faq-body">Um computador que rode Docker. Recomendamos 8 GB de RAM ou mais. As partes que usam nuvem ficam dentro das camadas gratuitas dos provedores.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Machine Learning Engineering: modelos confiáveis em produção</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, da engenharia de software ao sistema em escala</li>
+          <li>Código e infraestrutura de todos os módulos</li>
+          <li>Projeto end-to-end com code review</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Machine%20Learning%20Engineering%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Machine%20Learning%20Engineering" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>ML Engineering · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Machine%20Learning%20Engineering." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud for Data: plataformas de dados na nuvem | DTN Educação</title>
+  <meta name="description" content="Curso de Cloud for Data em 10 módulos: fundamentos de nuvem, IAM e segurança, storage e bancos, processamento, data warehouse, containers, serverless, infraestrutura como código e arquitetura. Ementa completa." />
+  <meta property="og:title" content="Cloud for Data: plataformas de dados na nuvem · DTN" />
+  <meta property="og:description" content="Monte, proteja e automatize uma plataforma de dados na nuvem, com custo sob controle. 10 módulos, ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Cloud for Data</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Cloud for Data: plataformas de dados <em>na nuvem</em></h1>
+        <p class="cp-lead">
+          Você vai aprender a montar uma plataforma de dados na nuvem: entender os serviços de cada provedor, controlar quem acessa o quê, escolher o armazenamento certo, processar e analisar dados com serviços gerenciados, rodar containers e funções serverless, e descrever toda a infraestrutura como código.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com uma peça da plataforma no ar. No fim, você tem uma arquitetura de dados completa, criada por Terraform, documentada e publicada no seu GitHub.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>aws</span><span>gcp</span><span>azure</span><span>cli</span><span>python</span><span>sql</span><span>docker</span><span>kubernetes</span><span>terraform</span><span>github actions</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Iniciante · Intermediário</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Python e SQL básicos</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Código + infraestrutura</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos montam a <em>plataforma camada por camada</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Você começa pela base (conta, rede e permissões) e vai empilhando: armazenamento, processamento, warehouse, computação e automação. No fim, o Terraform descreve tudo o que foi criado, e a plataforma pode ser recriada do zero com um comando.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">01</div><strong>Fundamentos</strong><small>regiões, redes e custos</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>Segurança</strong><small>IAM e segredos</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>Storage</strong><small>lake e bancos</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>Processamento</strong><small>ingestão e ETL</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>Warehouse</strong><small>análise em escala</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>Containers</strong><small>compute gerenciado</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>Serverless</strong><small>eventos e orquestração</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>IaC</strong><small>Terraform e CI/CD</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M18 10h-1.3A7 7 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        <h3>Desenhar arquiteturas de dados</h3>
+        <p>Escolher e combinar serviços gerenciados para ingestão, armazenamento, processamento e análise.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <h3>Proteger dados e acessos</h3>
+        <p>IAM com menor privilégio, segredos fora do código, criptografia e auditoria alinhadas à LGPD.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+        <h3>Escolher o armazenamento certo</h3>
+        <p>Object storage, bancos relacionais, NoSQL ou warehouse: saber qual usar em cada caso.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+        <h3>Montar pipelines gerenciados</h3>
+        <p>Ingestão batch e streaming, ETL gerenciado e Spark na nuvem, gravando no data lake.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3>Automatizar com infraestrutura como código</h3>
+        <p>Toda a plataforma descrita em Terraform e aplicada por CI/CD, sem cliques no console.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.6-.6-3-1.6M12 6v2M12 16v2"/></svg>
+        <h3>Controlar custos</h3>
+        <p>Alertas de orçamento, escolha de classes de armazenamento e computação, e estimativa de custo de uma arquitetura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">Por que os dados foram para a nuvem</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <!-- AJUSTE: indique o provedor usado nos exercícios práticos -->
+            <ul>
+              <li>On-premises × nuvem: o que muda para quem trabalha com dados</li>
+              <li>Os três grandes provedores: AWS, Google Cloud e Azure</li>
+              <li>Como os serviços se equivalem entre provedores</li>
+              <li>A arquitetura que vamos montar ao longo do curso</li>
+              <li>Criar a conta, configurar o faturamento e alertas de custo</li>
+              <li>Console e linha de comando (CLI)</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Conta configurada com alertas de custo e a CLI funcionando.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Cloud Fundamentals<span class="module-sub">Os conceitos que valem para qualquer provedor</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Regiões, zonas de disponibilidade e latência</li>
+              <li>IaaS, PaaS, SaaS e serverless</li>
+              <li>Redes: VPC, sub-redes, firewalls e endpoints privados</li>
+              <li>Modelo de responsabilidade compartilhada</li>
+              <li>Modelos de cobrança e otimização de custos</li>
+              <li>Alta disponibilidade e recuperação de desastres</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>A rede do projeto (VPC e sub-redes) desenhada e criada.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">IAM e Security<span class="module-sub">Quem acessa o quê, e como provar isso</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Identidades, papéis e políticas</li>
+              <li>Princípio do menor privilégio</li>
+              <li>Contas de serviço e credenciais temporárias</li>
+              <li>Gerenciamento de segredos</li>
+              <li>Criptografia em repouso e em trânsito</li>
+              <li>Auditoria, logs de acesso e LGPD</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Políticas de acesso do projeto com menor privilégio e nenhum segredo no código.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">Cloud Storage e Databases<span class="module-sub">Onde guardar cada tipo de dado</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Object storage (S3, Cloud Storage, Blob Storage): classes, ciclo de vida e versionamento</li>
+              <li>Bancos relacionais gerenciados</li>
+              <li>NoSQL gerenciado: documento e chave-valor</li>
+              <li>Como escolher o armazenamento certo para cada caso</li>
+              <li>Backup, replicação e custos de armazenamento</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um data lake em object storage com políticas de ciclo de vida e um banco gerenciado conectado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">Data Processing e Integration<span class="module-sub">Mover e transformar dados na nuvem</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Ingestão batch e streaming (Kinesis, Pub/Sub, Event Hubs)</li>
+              <li>ETL gerenciado (Glue, Dataflow, Data Factory)</li>
+              <li>Spark gerenciado (EMR, Dataproc, Databricks)</li>
+              <li>Filas e eventos para integrar sistemas</li>
+              <li>Consultas diretamente sobre o data lake</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um pipeline gerenciado de ingestão e transformação gravando no data lake.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Data Warehouse e Lakehouse<span class="module-sub">Análise em escala com serviços gerenciados</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Warehouses na nuvem: Redshift, BigQuery, Synapse e Snowflake</li>
+              <li>Modelagem e particionamento de tabelas na nuvem</li>
+              <li>Lakehouse gerenciado com Delta Lake e Iceberg</li>
+              <li>Controle de custo por consulta</li>
+              <li>Catálogo de dados e governança</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um warehouse alimentado pelo data lake, com consultas analíticas e custo medido.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">Compute e Containerization<span class="module-sub">Rodar código na nuvem do jeito certo</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Máquinas virtuais: quando ainda fazem sentido</li>
+              <li>Docker e registros de containers</li>
+              <li>Containers gerenciados (ECS, Cloud Run, Container Apps)</li>
+              <li>Kubernetes gerenciado (EKS, GKE, AKS): visão prática</li>
+              <li>Autoscaling e instâncias spot para reduzir custo</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma aplicação de dados em container, rodando em um serviço gerenciado com autoscaling.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Orchestration e Serverless<span class="module-sub">Automatizar sem administrar servidores</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Funções serverless (Lambda, Cloud Functions, Azure Functions)</li>
+              <li>Arquiteturas orientadas a eventos</li>
+              <li>Orquestradores gerenciados (Step Functions, Workflows, Airflow gerenciado)</li>
+              <li>Agendamento, retries e tratamento de falhas</li>
+              <li>Quando serverless fica caro</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um fluxo orientado a eventos que dispara o pipeline sempre que um arquivo novo chega ao lake.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Infrastructure as Code e DevOps<span class="module-sub">Infraestrutura versionada, revisada e reproduzível</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Terraform: providers, recursos, variáveis, módulos e state</li>
+              <li>Ambientes separados de desenvolvimento e produção</li>
+              <li>CI/CD com GitHub Actions</li>
+              <li>Revisão de mudanças de infraestrutura com plan e apply</li>
+              <li>Observabilidade: logs, métricas e alertas</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Toda a infraestrutura do projeto descrita em Terraform e aplicada por CI/CD.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Cloud Architecture e Projetos<span class="module-sub">Juntar as peças em uma arquitetura que você sabe defender</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Arquiteturas de referência para plataformas de dados</li>
+              <li>Well-architected: segurança, confiabilidade, custo e performance</li>
+              <li>Estimativa de custo de uma arquitetura</li>
+              <li>Projeto final ponta a ponta com code review</li>
+              <li>Certificações de nuvem: qual faz sentido para o seu objetivo</li>
+              <li>Portfólio e próximos passos</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma plataforma de dados completa na nuvem, criada por Terraform, documentada e publicada no seu GitHub.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você trabalha com dados e precisa levar seus projetos para a nuvem</li>
+          <li>Sua empresa está migrando para a nuvem e você quer entender o que está sendo montado</li>
+          <li>Quer uma base sólida antes de estudar para uma certificação de nuvem</li>
+          <li>Vem da área de infraestrutura e quer se especializar em plataformas de dados</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você nunca usou SQL ou Python. Comece por <a href="data-analyst.html">Data Analyst</a></li>
+          <li>Quer se aprofundar em pipelines e modelagem. Veja <a href="data-engineering.html">Data Engineering</a></li>
+          <li>Procura um preparatório para a prova de uma certificação específica</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20saber%20se%20tenho%20o%20n%C3%ADvel%20para%20o%20curso%20de%20Cloud%20for%20Data." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com prática</h3>
+        <p>Aulas online pelo Google Meet. A infraestrutura é criada durante a aula, não mostrada em slide.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Código Terraform, scripts e o repositório final de cada módulo, para consultar quando precisar.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Qual provedor de nuvem o curso usa?</summary>
+        <div class="faq-body">Os conceitos valem para AWS, Google Cloud e Azure, e mostramos o serviço equivalente em cada um. Os exercícios práticos usam um provedor principal. <!-- AJUSTE: diga qual provedor --></div>
+      </details>
+      <details class="faq-item">
+        <summary>Vou ter que pagar pela nuvem?</summary>
+        <div class="faq-body">Os exercícios foram pensados para as camadas gratuitas. Você configura alertas de custo no primeiro módulo e aprende a destruir os recursos com Terraform ao fim de cada aula.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O curso prepara para certificação?</summary>
+        <div class="faq-body">Ele cobre boa parte dos fundamentos cobrados nas certificações de dados em nuvem, mas não é um preparatório para prova. O foco é saber montar e operar a plataforma.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual a diferença para o curso de Data Engineering?</summary>
+        <div class="faq-body">Data Engineering foca em pipelines, modelagem e qualidade dos dados. Cloud for Data foca na infraestrutura onde isso roda: rede, segurança, serviços gerenciados, containers e infraestrutura como código.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Cloud for Data: plataformas de dados na nuvem</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, dos fundamentos à arquitetura completa</li>
+          <li>Código Terraform e scripts de todos os módulos</li>
+          <li>Projeto final ponta a ponta com code review</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Cloud%20for%20Data%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Cloud%20for%20Data" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>Cloud for Data · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Cloud%20for%20Data." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

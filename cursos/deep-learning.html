@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Learning: das redes neurais aos transformers | DTN Educação</title>
+  <meta name="description" content="Curso de Deep Learning em 10 módulos: fundamentos matemáticos, backpropagation, PyTorch, CNNs, RNNs, attention e transformers, modelos generativos e treinamento distribuído. Ementa completa." />
+  <meta property="og:title" content="Deep Learning: das redes neurais aos transformers · DTN" />
+  <meta property="og:description" content="Entenda e construa redes neurais de verdade, do backpropagation em NumPy aos transformers em PyTorch. 10 módulos, ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Deep Learning</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Deep Learning: das redes neurais <em>aos transformers</em></h1>
+        <p class="cp-lead">
+          Você vai entender redes neurais por dentro e construí-las de verdade: implementar o backpropagation do zero, dominar o PyTorch e treinar modelos para imagem, texto e geração, passando por CNNs, RNNs, attention, transformers e modelos de difusão.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com um modelo treinado e o código que o gerou. No fim, você tem projetos de visão computacional e de linguagem no seu GitHub.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>python</span><span>numpy</span><span>pytorch</span><span>torchvision</span><span>hugging face</span><span>tensorboard</span><span>google colab</span><span>cuda</span><span>onnx</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Intermediário · Avançado</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Python e noções de ML</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Notebooks + modelos</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos seguem a <em>evolução das arquiteturas</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Cada arquitetura resolve um limite da anterior. Você implementa a rede do zero, reescreve em PyTorch e, a partir daí, entende por que as CNNs funcionam em imagens, por que as RNNs travam em sequências longas e como o attention resolveu isso.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">01</div><strong>Matemática</strong><small>o essencial, em código</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>Redes neurais</strong><small>backprop do zero</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>PyTorch</strong><small>tensores e autograd</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>CNNs</strong><small>visão computacional</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>RNNs</strong><small>texto e sequências</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>Transformers</strong><small>attention</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>Generativos</strong><small>VAE, GAN e difusão</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>Treino em escala</strong><small>otimização e GPUs</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 7l3 4M7 17l3-4M14 11l3-4M14 13l3 4"/></svg>
+        <h3>Entender redes neurais por dentro</h3>
+        <p>Implementar forward, backpropagation e gradiente descendente do zero, sem depender de mágica de biblioteca.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3>Treinar modelos com PyTorch</h3>
+        <p>Montar datasets, loops de treino, checkpoints e acompanhar métricas com TensorBoard.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <h3>Resolver problemas com imagens</h3>
+        <p>Classificar imagens com CNNs e transfer learning, e analisar onde o modelo erra.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+        <h3>Trabalhar com texto e sequências</h3>
+        <p>Embeddings, LSTMs e transformers aplicados a texto e séries temporais.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+        <h3>Usar e ajustar transformers</h3>
+        <p>Implementar um transformer pequeno e fazer fine-tuning de modelos pré-treinados do Hugging Face.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        <h3>Treinar com eficiência</h3>
+        <p>Mixed precision, schedulers e treinamento distribuído em várias GPUs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">Quando deep learning é a ferramenta certa</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>O que é deep learning e como ele se relaciona com o ML clássico</li>
+              <li>Quando usar, e quando um modelo mais simples resolve melhor</li>
+              <li>Aplicações: visão, linguagem, áudio e geração de conteúdo</li>
+              <li>Por que GPUs importam</li>
+              <li>Setup: Python, PyTorch e GPU local ou Google Colab</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Ambiente com PyTorch rodando em GPU e o primeiro modelo treinado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Fundamentos Matemáticos<span class="module-sub">Só a matemática que você vai usar, sempre em código</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Álgebra linear: vetores, matrizes, produto matricial e tensores</li>
+              <li>Cálculo: derivadas, gradiente e regra da cadeia</li>
+              <li>Probabilidade: distribuições, verossimilhança, entropia e cross-entropy</li>
+              <li>Otimização: gradiente descendente</li>
+              <li>Tudo implementado em NumPy, lado a lado com a fórmula</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Gradiente descendente implementado do zero em NumPy, ajustando uma regressão.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">Neural Networks e Backpropagation<span class="module-sub">Entender a rede por dentro antes de usar uma biblioteca</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Perceptron e redes multicamada (MLP)</li>
+              <li>Funções de ativação: sigmoid, tanh, ReLU e variantes</li>
+              <li>Funções de perda para regressão e classificação</li>
+              <li>Backpropagation passo a passo</li>
+              <li>Inicialização de pesos</li>
+              <li>Overfitting: regularização, dropout e early stopping</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma rede neural com backpropagation implementada do zero em NumPy.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">PyTorch e Autograd<span class="module-sub">A ferramenta padrão de pesquisa e indústria</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Tensores e operações na GPU</li>
+              <li>Autograd: como o PyTorch calcula gradientes</li>
+              <li><code>nn.Module</code>, otimizadores e o loop de treino</li>
+              <li><code>Dataset</code> e <code>DataLoader</code></li>
+              <li>Salvar, carregar e retomar o treino com checkpoints</li>
+              <li>Acompanhar o treino com TensorBoard</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>A rede do módulo 02 reescrita em PyTorch, com loop de treino completo e métricas no TensorBoard.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">Convolutional Neural Networks<span class="module-sub">Redes para imagens</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Convolução, filtros, padding, stride e pooling</li>
+              <li>Arquiteturas clássicas: LeNet, VGG e ResNet</li>
+              <li>Batch normalization e conexões residuais</li>
+              <li>Data augmentation</li>
+              <li>Transfer learning e fine-tuning</li>
+              <li>Visão geral de detecção de objetos e segmentação</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um classificador de imagens com transfer learning e análise dos erros do modelo.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Sequential Models e RNNs<span class="module-sub">Redes para sequências: texto e séries temporais</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Representação de texto: tokenização e embeddings</li>
+              <li>RNNs e o problema do vanishing gradient</li>
+              <li>LSTM e GRU</li>
+              <li>Arquiteturas sequence-to-sequence</li>
+              <li>Aplicações em texto e séries temporais</li>
+              <li>As limitações que motivaram o attention</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um modelo LSTM para classificação de texto ou previsão de série temporal.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">Attention e Transformers<span class="module-sub">A arquitetura por trás dos LLMs</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>O mecanismo de attention</li>
+              <li>Self-attention e multi-head attention</li>
+              <li>Arquitetura transformer: encoder, decoder e positional encoding</li>
+              <li>BERT × GPT: modelos encoder-only e decoder-only</li>
+              <li>Implementação de um transformer pequeno</li>
+              <li>Hugging Face: fine-tuning de um modelo pré-treinado</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um transformer pequeno implementado em PyTorch e um modelo pré-treinado ajustado para uma tarefa.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Generative Models<span class="module-sub">Redes que geram dados novos</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Autoencoders e Variational Autoencoders (VAE)</li>
+              <li>GANs: gerador, discriminador e instabilidades de treino</li>
+              <li>Modelos de difusão: intuição e funcionamento</li>
+              <li>Modelos de linguagem autorregressivos e geração de texto</li>
+              <li>Como avaliar modelos generativos</li>
+              <li>Uso responsável de IA generativa</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um modelo generativo treinado (VAE ou difusão) gerando imagens novas.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Optimization e Distributed Training<span class="module-sub">Treinar maior, mais rápido e de forma estável</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Otimizadores: SGD, momentum, Adam e AdamW</li>
+              <li>Learning rate schedules e warmup</li>
+              <li>Mixed precision</li>
+              <li>Gradient accumulation e gradient clipping</li>
+              <li>Treinamento distribuído: data parallel (DDP) e noções de model parallel</li>
+              <li>Profiling e gargalos de GPU</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um treino acelerado com mixed precision e DDP, com comparação de tempo e resultado.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Projetos e Aplicações<span class="module-sub">Do modelo treinado a um projeto que dá para mostrar</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <!-- AJUSTE: troque pelos projetos que você realmente aplica -->
+            <ul>
+              <li>Projeto de visão computacional ponta a ponta</li>
+              <li>Projeto de processamento de linguagem ponta a ponta</li>
+              <li>Exportar o modelo (ONNX, TorchScript) e servir por API</li>
+              <li>Como ler papers e acompanhar a área</li>
+              <li>Code review individual e portfólio</li>
+              <li>Próximos passos: LLMs, modelos multimodais e pesquisa</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Dois projetos completos publicados no seu GitHub, com o modelo exportado e uma demo.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você já conhece ML clássico e quer dar o passo para deep learning</li>
+          <li>Quer entender como LLMs e modelos de imagem funcionam por dentro, não só usar uma API</li>
+          <li>Trabalha ou quer trabalhar com imagem, texto ou áudio</li>
+          <li>Quer uma base sólida para pesquisa, mestrado ou vagas de ML</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você nunca treinou um modelo. Comece por <a href="data-science.html">Data Science</a></li>
+          <li>Quer só usar ferramentas de IA prontas. Veja <a href="../educacao.html#cursos">IA para Negócios</a></li>
+          <li>Seus dados são tabelas: modelos clássicos costumam ganhar. Veja <a href="data-science.html">Data Science</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20saber%20se%20tenho%20o%20n%C3%ADvel%20para%20o%20curso%20de%20Deep%20Learning." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com código</h3>
+        <p>Aulas online pelo Google Meet. Os modelos são implementados e treinados durante a aula.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Notebooks, scripts de treino e os modelos de cada módulo, para consultar quando precisar.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Preciso ter uma GPU?</summary>
+        <div class="faq-body">Não. O Google Colab oferece GPU gratuita, suficiente para os exercícios do curso. Se você tiver uma GPU NVIDIA, também dá para rodar localmente.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quanta matemática eu preciso saber?</summary>
+        <div class="faq-body">O módulo 01 revisa álgebra linear, cálculo e probabilidade na medida do necessário, sempre com código. Ajuda já ter visto derivadas em algum momento.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Por que PyTorch e não TensorFlow?</summary>
+        <div class="faq-body">PyTorch é o padrão em pesquisa e é cada vez mais usado na indústria. Os conceitos se transferem para qualquer framework.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual a diferença para o curso de Data Science?</summary>
+        <div class="faq-body">Data Science cobre o ciclo completo de projetos com ML clássico, principalmente em dados tabulares. Deep Learning aprofunda em redes neurais para imagem, texto e geração.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Deep Learning: das redes neurais aos transformers</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, da matemática aos transformers</li>
+          <li>Notebooks, scripts e modelos de todos os módulos</li>
+          <li>Projetos de visão e linguagem com code review</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Quero%20me%20inscrever%20no%20curso%20de%20Deep%20Learning%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Deep%20Learning" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>Deep Learning · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Deep%20Learning." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

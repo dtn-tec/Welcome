@@ -728,57 +728,50 @@ footer {
 
 .section-intro { max-width: 620px; font-size: 15px; line-height: 1.8; }
 
-/* Featured course (catalog) */
-.course-featured {
-  display: grid; grid-template-columns: 1.05fr .95fr;
-  margin-top: 40px; border-radius: 10px; overflow: hidden;
-  background: var(--ink); color: var(--snow);
-  border: 1px solid var(--line-dark);
-  box-shadow: 0 18px 40px rgba(20,24,33,.18);
+/* Catalog subtitles */
+.catalog-subtitle {
+  font-size: 18px; margin: 48px 0 0;
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
 }
-.cf-main { padding: 44px 40px; display: flex; flex-direction: column; }
-.cf-main .course-tag {
+.catalog-subtitle span { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--text-muted); }
+
+/* Track cards (trilhas completas) */
+.track-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 20px;
+}
+.track-card {
+  background: var(--ink); color: var(--snow);
+  border: 1px solid var(--line-dark); border-radius: 10px;
+  padding: 32px 28px; display: flex; flex-direction: column;
+  box-shadow: 0 14px 34px rgba(20,24,33,.16);
+  transition: transform .25s, box-shadow .25s;
+}
+.track-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(20,24,33,.24); }
+.track-card .course-tag {
   display: inline-block; align-self: flex-start;
   font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
   color: #9CC3DF; border: 1px solid var(--line-dark);
   padding: 4px 10px; border-radius: 3px; margin-bottom: 16px;
 }
-.cf-main h3 { color: var(--snow); font-size: clamp(24px, 2.6vw, 32px); margin-bottom: 14px; }
-.cf-main p { color: #B9C2CE; font-size: 15px; line-height: 1.75; }
-.cf-facts {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-  margin: 28px 0; background: var(--line-dark);
-  border: 1px solid var(--line-dark); border-radius: 8px; overflow: hidden;
+.track-card h3 { color: var(--snow); font-size: 26px; margin-bottom: 10px; }
+.track-card p { color: #B9C2CE; font-size: 14px; line-height: 1.7; }
+.track-card h3 + p { min-height: 5.1em; } /* alinha as listas entre os 3 cards */
+.track-card .track-prereq { font-size: 13px; margin-top: 12px; color: var(--mist); }
+.track-card .track-prereq b { color: #D3DAE3; font-weight: 600; }
+.track-modules {
+  list-style: none; margin: 20px 0 24px; padding-top: 14px;
+  border-top: 1px solid #2A3341;
 }
-.cf-facts div { background: var(--ink); padding: 14px 16px; }
-.cf-facts strong {
-  display: block; font-family: 'Manrope', sans-serif; font-size: 20px;
-  font-weight: 800; color: var(--snow); line-height: 1.2;
+.track-modules li {
+  display: flex; gap: 12px; align-items: baseline;
+  padding: 6px 0; font-size: 13px; color: #D3DAE3;
 }
-.cf-facts span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--mist); }
-.cf-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
-.cf-actions .btn-solid { background: #fff; color: var(--ink); }
-.cf-actions .btn-ghost { border-color: #5E6B7C; color: var(--snow); }
-.cf-actions .btn-ghost:hover { background: var(--snow); color: var(--ink); }
-.cf-modules {
-  background: #19202B; padding: 36px 36px 32px;
-  border-left: 1px solid var(--line-dark);
+.track-modules li b {
+  font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 800;
+  color: #6FA6CC; min-width: 20px; font-variant-numeric: tabular-nums;
 }
-.cf-modules-title {
-  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--mist); margin-bottom: 14px; font-weight: 600;
-}
-.cf-modules ol { list-style: none; display: flex; flex-direction: column; }
-.cf-modules li {
-  display: flex; gap: 14px; align-items: baseline;
-  padding: 9px 0; border-bottom: 1px solid #262F3C;
-  font-size: 14px; color: #D3DAE3;
-}
-.cf-modules li:last-child { border-bottom: none; }
-.cf-modules li b {
-  font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 800;
-  color: #6FA6CC; min-width: 22px; font-variant-numeric: tabular-nums;
-}
+.track-card .btn { margin-top: auto; justify-content: center; background: #fff; color: var(--ink); }
 
 /* Course grid cards */
 .course-grid {
@@ -968,8 +961,7 @@ code {
 .sticky-cta { display: none; }
 
 @media (max-width: 980px) {
-  .course-featured { grid-template-columns: 1fr; }
-  .cf-modules { border-left: none; border-top: 1px solid var(--line-dark); }
+  .track-grid { grid-template-columns: 1fr; max-width: 560px; }
   .course-grid { grid-template-columns: 1fr 1fr; }
   .cp-hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .cp-summary { position: static; }
@@ -981,8 +973,7 @@ code {
 }
 @media (max-width: 640px) {
   .course-grid, .outcome-grid, .fit-grid, .format-grid { grid-template-columns: 1fr; }
-  .cf-main, .cf-modules, .enroll-left, .enroll-right { padding: 30px 24px; }
-  .cf-facts strong { font-size: 17px; }
+  .enroll-left, .enroll-right { padding: 30px 24px; }
   .pipeline { grid-template-columns: 1fr 1fr; }
   .pipe-step:nth-child(odd)::before { display: none; }
   .module summary { grid-template-columns: 40px 1fr auto; gap: 12px; padding: 16px 18px; }

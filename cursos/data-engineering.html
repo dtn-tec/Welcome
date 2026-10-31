@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Engineering: pipelines de dados do zero à nuvem | DTN Educação</title>
+  <meta name="description" content="Curso de Data Engineering em 10 módulos: SQL e modelagem, data warehousing, ETL/ELT, lakehouse, Spark, orquestração, data quality e deploy em nuvem. Ementa completa." />
+  <meta property="og:title" content="Data Engineering: pipelines de dados do zero à nuvem · DTN" />
+  <meta property="og:description" content="Construa a infraestrutura que leva o dado da origem até quem decide. 10 módulos, ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Data Engineering</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Data Engineering: pipelines de dados <em>do zero à nuvem</em></h1>
+        <p class="cp-lead">
+          Você vai construir a infraestrutura que leva o dado da origem até quem decide: modelar o warehouse, escrever pipelines de ingestão e transformação, montar um lakehouse, processar grandes volumes com Spark, orquestrar tudo com Airflow e garantir que o dado que chega ao final é confiável.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com um entregável em código. No fim, você tem uma plataforma de dados completa no seu GitHub, rodando em nuvem e com CI.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>sql</span><span>postgresql</span><span>python</span><span>docker</span><span>dbt</span>
+          <span>duckdb</span><span>delta lake</span><span>spark</span><span>kafka</span><span>airflow</span>
+          <span>great expectations</span><span>terraform</span><span>github actions</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Intermediário</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Python básico</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Código + infraestrutura</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos seguem o <em>caminho do dado</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Cada etapa é construída sobre a anterior, no mesmo projeto. O modelo dimensional do módulo 02 é o que o pipeline do módulo 04 alimenta, o Airflow do módulo 07 orquestra tudo o que veio antes, e os testes do módulo 08 vigiam o resultado.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>Modelagem</strong><small>SQL e modelo dimensional</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>Warehouse</strong><small>armazenamento analítico</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>Pipelines</strong><small>ETL/ELT com dbt</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>Lakehouse</strong><small>bronze, silver, gold</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>Big Data</strong><small>Spark e streaming</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>Orquestração</strong><small>Airflow e agendamento</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>Qualidade</strong><small>testes e observabilidade</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">09</div><strong>Cloud</strong><small>deploy e CI/CD</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg>
+        <h3>Modelar dados para análise</h3>
+        <p>Desenhar um modelo dimensional com fatos, dimensões e histórico (SCD), e escrever SQL avançado e performático sobre ele.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/><circle cx="10" cy="18" r="1.5" fill="currentColor"/></svg>
+        <h3>Construir pipelines confiáveis</h3>
+        <p>Ingestão incremental e idempotente, transformações versionadas em dbt e reprocessamento sem duplicar dados.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        <h3>Montar um lakehouse</h3>
+        <p>Organizar um data lake em camadas bronze, silver e gold com Delta Lake, com transações ACID e time travel.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        <h3>Processar grandes volumes</h3>
+        <p>Jobs em PySpark com particionamento, controle de shuffle e skew, e noções de streaming com Kafka.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+        <h3>Orquestrar e automatizar</h3>
+        <p>DAGs no Airflow com dependências, retries, backfill e alertas, integrando ingestão, dbt e Spark.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <h3>Garantir dados confiáveis</h3>
+        <p>Testes de qualidade, data contracts e monitoramento de freshness, volume e schema, com alertas antes de alguém reclamar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">O papel do engenheiro de dados e o ambiente de trabalho</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>O que faz um engenheiro de dados e como ele se relaciona com analistas e cientistas</li>
+              <li>Ciclo de vida do dado: geração, ingestão, armazenamento, transformação e consumo</li>
+              <li>A arquitetura que vamos construir ao longo do curso</li>
+              <li>Setup: terminal, Git, Python, Docker e PostgreSQL</li>
+              <li>Apresentação do projeto e das fontes de dados do curso</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Ambiente local rodando em Docker e repositório do projeto criado com a estrutura inicial.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Fundamentos de Data Engineering<span class="module-sub">Os conceitos que valem para qualquer ferramenta</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>OLTP × OLAP: por que o banco da aplicação não serve para análise</li>
+              <li>Batch × streaming: quando cada um faz sentido</li>
+              <li>Formatos de arquivo: CSV, JSON, Parquet e Avro, e o impacto da compressão</li>
+              <li>Dados estruturados, semiestruturados e não estruturados</li>
+              <li>Idempotência, reprocessamento e backfill</li>
+              <li>Schema evolution e contratos de dados</li>
+              <li>Ingestão de APIs e arquivos com Python</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um script de ingestão idempotente que lê de uma API e grava em Parquet, podendo rodar várias vezes sem duplicar dados.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">SQL e Modelagem de Dados<span class="module-sub">Do SELECT ao modelo dimensional</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>SQL do básico ao avançado: joins, agregações, subqueries e CTEs</li>
+              <li>Window functions: ranking, acumulados e comparações entre períodos</li>
+              <li>Planos de execução (<code>EXPLAIN</code>), índices e otimização de queries</li>
+              <li>Normalização: 1ª, 2ª e 3ª formas normais</li>
+              <li>Modelagem dimensional (Kimball): fatos, dimensões, star e snowflake schema</li>
+              <li>Slowly Changing Dimensions: tipos 1 e 2</li>
+              <li>Visão geral de Data Vault e One Big Table</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>O modelo dimensional do projeto desenhado e criado em SQL, com consultas analíticas que respondem às perguntas de negócio.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">Bancos de Dados e Data Warehousing<span class="module-sub">Onde e como armazenar dados para análise</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Relacional × NoSQL: documento, chave-valor e colunar</li>
+              <li>Armazenamento colunar e por que um warehouse responde rápido</li>
+              <li>Warehouses na nuvem: BigQuery, Snowflake e Redshift, e o que eles têm em comum</li>
+              <li>Particionamento e clustering de tabelas</li>
+              <li>Custo: como as cobranças funcionam e como evitar surpresas</li>
+              <li>DuckDB para análise local de alto desempenho</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um warehouse populado com o modelo dimensional do projeto, com tabelas particionadas e comparação de desempenho.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">ETL, ELT e Data Pipelines<span class="module-sub">Levar o dado da origem ao destino, todo dia, sem quebrar</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>ETL × ELT: o que mudou com os warehouses modernos</li>
+              <li>Carga full × incremental e estratégias de watermark</li>
+              <li>Change Data Capture (CDC): conceito e quando usar</li>
+              <li>dbt: models, sources, refs, materializações, testes e documentação</li>
+              <li>Camadas de transformação: staging, intermediate e marts</li>
+              <li>Tratamento de erros, reprocessamento e dados que chegam atrasados</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um pipeline ELT com dbt, carga incremental, testes e documentação gerada automaticamente.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Data Lakes e Lakehouse<span class="module-sub">Armazenamento barato com a confiabilidade de um warehouse</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Data lake: organização, zonas e formatos</li>
+              <li>Arquitetura medallion: camadas bronze, silver e gold</li>
+              <li>Table formats: Delta Lake e Apache Iceberg</li>
+              <li>Transações ACID, time travel e schema evolution no lake</li>
+              <li>Catálogo de dados e governança</li>
+              <li>Lake, warehouse ou lakehouse: como escolher</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um lakehouse com as camadas bronze, silver e gold em Delta Lake, alimentado pelos dados do projeto.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">Processamento Distribuído e Big Data<span class="module-sub">Quando os dados não cabem em uma máquina</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Por que distribuir: de MapReduce ao Spark</li>
+              <li>Spark: DataFrames, lazy evaluation, transformações e ações</li>
+              <li>Partições, shuffle, data skew e tuning de jobs</li>
+              <li>Spark SQL e leitura/escrita em Delta Lake</li>
+              <li>Streaming: conceitos de Kafka (tópicos, partições, consumidores) e Structured Streaming</li>
+              <li>Quando <em>não</em> usar big data</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um job PySpark que processa um volume grande de dados com particionamento otimizado e tempo de execução medido.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Orquestração e Automação<span class="module-sub">Fazer tudo rodar sozinho, na ordem certa</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Cron × orquestrador: o que muda quando os pipelines crescem</li>
+              <li>Apache Airflow: DAGs, operators, sensors e XComs</li>
+              <li>Dependências, retries, SLAs e backfill</li>
+              <li>Parametrização e agendamento</li>
+              <li>Integração do Airflow com dbt e Spark</li>
+              <li>Visão geral de alternativas: Dagster e Prefect</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma DAG no Airflow que orquestra ingestão, transformação e testes do projeto, com retries e alertas.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Data Quality e Observability<span class="module-sub">Descobrir o problema antes de quem usa o dado</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Dimensões de qualidade: completude, unicidade, validade, consistência e atualidade</li>
+              <li>Testes com dbt tests e Great Expectations</li>
+              <li>Data contracts entre produtores e consumidores</li>
+              <li>Observabilidade: freshness, volume, schema, distribuição e linhagem</li>
+              <li>Alertas e gestão de incidentes de dados</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma suíte de testes de qualidade integrada ao pipeline, que bloqueia dado ruim e dispara alertas.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Deploy, Cloud e Projetos<span class="module-sub">Colocar a plataforma no ar e montar o portfólio</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <!-- AJUSTE: indique o provedor de nuvem que você usa (AWS, GCP ou Azure) -->
+            <ul>
+              <li>Serviços de dados na nuvem: armazenamento, computação e warehouse gerenciado</li>
+              <li>Docker e configuração por ambiente (dev, produção)</li>
+              <li>Infraestrutura como código com Terraform: visão prática</li>
+              <li>CI/CD para pipelines com GitHub Actions</li>
+              <li>Segurança: credenciais, permissões e LGPD</li>
+              <li>Projeto final ponta a ponta com code review individual</li>
+              <li>Portfólio, entrevistas técnicas e próximos passos</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>A plataforma de dados do projeto rodando em nuvem, versionada, com CI e publicada no seu GitHub.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você já escreve Python básico e quer trabalhar com a infraestrutura de dados</li>
+          <li>É analista ou cientista de dados e vive esbarrando em dado mal organizado</li>
+          <li>É desenvolvedor e quer migrar para a área de dados</li>
+          <li>Quer aprender a stack moderna (dbt, Airflow, Spark, lakehouse) com prática, não só teoria</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você nunca programou. Nesse caso, comece por <a href="data-analyst.html">Data Analyst</a></li>
+          <li>Seu objetivo é treinar modelos de Machine Learning. Veja <a href="data-science.html">Data Science</a></li>
+          <li>Procura um curso sobre uma única ferramenta, sem os fundamentos</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20se%20tenho%20o%20n%C3%ADvel%20para%20o%20curso%20de%20Data%20Engineering." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com código</h3>
+        <p>Aulas online pelo Google Meet. Os pipelines são construídos durante a aula, não lidos em slide.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Código, arquivos Docker e o repositório final de cada módulo, para consultar quando precisar.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Preciso saber SQL antes?</summary>
+        <div class="faq-body">Não. O módulo 02 cobre SQL do básico ao avançado. Python básico (variáveis, funções, listas e dicionários) é o único pré-requisito.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Vou ter que pagar serviços de nuvem?</summary>
+        <div class="faq-body">A maior parte do curso roda localmente com Docker. Na etapa de nuvem usamos as camadas gratuitas dos provedores, e você aprende a configurar alertas de custo antes de criar qualquer recurso.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual computador eu preciso?</summary>
+        <div class="faq-body">Um computador que rode Docker. Como Spark e Airflow usam bastante memória, recomendamos 8 GB de RAM ou mais.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual a diferença para o curso de Data Science?</summary>
+        <div class="faq-body">Data Engineering constrói a infraestrutura que coleta, organiza e entrega os dados. Data Science usa esses dados para treinar modelos. São trilhas complementares: muita gente faz as duas.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Data Engineering: pipelines de dados do zero à nuvem</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, dos fundamentos ao deploy em nuvem</li>
+          <li>Código e infraestrutura de todos os módulos</li>
+          <li>Projeto final ponta a ponta com code review</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20curso%20de%20Data%20Engineering%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Data%20Engineering" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>Data Engineering · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Data%20Engineering." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

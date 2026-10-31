@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analyst: da pergunta de negócio à decisão | DTN Educação</title>
+  <meta name="description" content="Curso de Data Analyst em 10 módulos: SQL, Python, estatística, análise exploratória, visualização e BI, KPIs, testes A/B e storytelling com dados. Ementa completa." />
+  <meta property="og:title" content="Data Analyst: da pergunta de negócio à decisão · DTN" />
+  <meta property="og:description" content="SQL, Python, estatística, BI e storytelling para transformar dados em decisões. 10 módulos, ementa completa." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education" class="has-sticky-cta">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#ementa">Ementa</a></li>
+      <li><a href="#para-quem">Para quem é</a></li>
+      <li><a href="#formato">Formato</a></li>
+      <li><a href="#inscricao">Inscrição</a></li>
+      <li><a href="../educacao.html#cursos">Todos os cursos</a></li>
+    </ul>
+    <a href="#inscricao" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="cp-hero">
+  <div class="container">
+    <p class="cp-breadcrumb"><a href="../educacao.html">Educação</a> / <a href="../educacao.html#cursos">Cursos</a> / Data Analyst</p>
+    <div class="cp-hero-grid">
+      <div>
+        <p class="section-label">Curso completo · 10 módulos</p>
+        <h1>Data Analyst: da pergunta de negócio <em>à decisão</em></h1>
+        <p class="cp-lead">
+          Você vai aprender a responder perguntas reais com dados: consultar bancos com SQL, automatizar análises com Python, interpretar números com estatística, construir dashboards, definir KPIs, avaliar testes A/B e apresentar conclusões que alguém consegue usar para decidir.
+        </p>
+        <p class="cp-lead" style="margin-top:14px;">
+          Cada módulo termina com um entregável. No fim, você tem um projeto de portfólio completo: queries, notebook, dashboard e apresentação executiva.
+        </p>
+        <!-- AJUSTE: troque pelas ferramentas que você realmente usa nas aulas -->
+        <div class="cp-stack" aria-label="Ferramentas usadas no curso">
+          <span>excel</span><span>sql</span><span>postgresql</span><span>python</span><span>pandas</span>
+          <span>jupyter</span><span>matplotlib</span><span>seaborn</span><span>plotly</span><span>scipy</span>
+          <span>statsmodels</span><span>power bi</span>
+        </div>
+      </div>
+
+      <aside class="cp-summary" aria-label="Resumo do curso">
+        <dl>
+          <div><dt>Módulos</dt><dd>10 (00 a 09)</dd></div>
+          <!-- AJUSTE: descomente e preencha a carga horária -->
+          <!-- <div><dt>Carga horária</dt><dd>XX horas</dd></div> -->
+          <div><dt>Nível</dt><dd>Iniciante · Intermediário</dd></div>
+          <div><dt>Pré-requisito</dt><dd>Nenhum</dd></div>
+          <div><dt>Formato</dt><dd>Ao vivo · online</dd></div>
+          <div><dt>Material</dt><dd>Notebooks + dashboards</dd></div>
+          <div><dt>Certificado</dt><dd>Sim</dd></div>
+          <div><dt>Garantia</dt><dd>7 dias</dd></div>
+        </dl>
+        <a href="#inscricao" class="btn btn-solid">Ver investimento</a>
+        <a href="#ementa" class="btn btn-ghost">Ler a ementa</a>
+        <p class="cp-summary-note">Dúvidas sobre o conteúdo? Fale direto com o instrutor.</p>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- PIPELINE -->
+<section id="visao-geral">
+  <div class="container">
+    <p class="section-label">Visão geral</p>
+    <h2 class="section-title">Os módulos seguem o <em>trabalho de um analista</em></h2>
+    <div class="section-rule"></div>
+    <p class="section-intro" style="margin-bottom:40px;">
+      Você usa o mesmo conjunto de dados do começo ao fim. As queries do módulo 02 alimentam o notebook do 03, a estatística do 04 dá base para a exploração do 05, e tudo vira dashboard, KPI e, no final, uma apresentação para quem decide.
+    </p>
+    <div class="pipeline reveal" role="list">
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">02</div><strong>SQL</strong><small>buscar o dado certo</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">03</div><strong>Python</strong><small>limpar e automatizar</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">04</div><strong>Estatística</strong><small>ler os números</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">05</div><strong>Exploração</strong><small>encontrar padrões</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">06</div><strong>Visualização</strong><small>gráficos e BI</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">07</div><strong>KPIs</strong><small>métricas de negócio</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">08</div><strong>Experimentos</strong><small>testes A/B</small></div>
+      <div class="pipe-step" role="listitem"><div class="pipe-dot">09</div><strong>Storytelling</strong><small>da análise à decisão</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS CONCRETOS -->
+<section id="entregas" class="alt">
+  <div class="container">
+    <p class="section-label">Ao final do curso</p>
+    <h2 class="section-title">O que você vai saber <em>fazer</em></h2>
+    <div class="section-rule"></div>
+    <div class="outcome-grid reveal">
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+        <h3>Responder perguntas com SQL</h3>
+        <p>Joins, agregações e window functions para tirar do banco exatamente o número que a pergunta pede, sem duplicar linhas.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h3>Automatizar análises com Python</h3>
+        <p>Notebooks com pandas que leem, limpam e consolidam os dados, substituindo o relatório manual que você refaz todo mês.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20c2-10 4-14 7-14s5 4 7 14"/></svg>
+        <h3>Interpretar números com segurança</h3>
+        <p>Saber quando a média engana, o que um desvio-padrão diz e por que correlação não é causalidade.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        <h3>Construir dashboards que são usados</h3>
+        <p>O gráfico certo para cada pergunta, modelagem e DAX no Power BI e um layout que a diretoria entende de primeira.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        <h3>Definir e acompanhar KPIs</h3>
+        <p>Conversão, churn, CAC, LTV e retenção: escolher as métricas que importam e organizá-las em uma árvore de KPIs.</p>
+      </div>
+      <div class="card outcome">
+        <svg class="o-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 3h6M10 3v6L4 19a1.5 1.5 0 0 0 1.3 2h13.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/></svg>
+        <h3>Avaliar testes e recomendar</h3>
+        <p>Desenhar e analisar um teste A/B, entender o p-valor sem mitos e transformar o resultado em uma recomendação clara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMENTA -->
+<section id="ementa">
+  <div class="container">
+    <div class="syllabus-head">
+      <div>
+        <p class="section-label">Ementa completa</p>
+        <h2 class="section-title">Módulo por <em>módulo</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <button type="button" class="syllabus-toggle" aria-expanded="false">Expandir todos</button>
+    </div>
+
+    <div class="syllabus">
+
+      <details class="module" open>
+        <summary>
+          <span class="module-num">00</span>
+          <span class="module-title">Introdução<span class="module-sub">O trabalho do analista de dados e o ambiente de trabalho</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>O que faz um analista de dados no dia a dia</li>
+              <li>Tipos de análise: descritiva, diagnóstica, preditiva e prescritiva</li>
+              <li>O caminho da pergunta de negócio até o insight</li>
+              <li>Setup: planilhas, banco de dados SQL, Python com Jupyter e Power BI</li>
+              <li>Apresentação do dataset que acompanha o curso inteiro</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Ambiente configurado e a lista de perguntas de negócio que o seu projeto vai responder.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">01</span>
+          <span class="module-title">Fundamentos de Análise de Dados<span class="module-sub">Entender o dado antes de analisar</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Tipos de variáveis: categóricas, numéricas e temporais</li>
+              <li>Granularidade: o que cada linha da tabela representa</li>
+              <li>Métricas × dimensões</li>
+              <li>Dados organizados (tidy data) e por que isso economiza horas</li>
+              <li>Qualidade: valores ausentes, duplicados e inconsistências</li>
+              <li>Planilhas bem feitas: tabelas dinâmicas, PROCX/PROCV e validação</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma base limpa e documentada, com dicionário de dados explicando cada coluna.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">02</span>
+          <span class="module-title">SQL e Consulta de Dados<span class="module-sub">A linguagem que todo analista usa todos os dias</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li><code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code> e <code>HAVING</code></li>
+              <li>JOINs e a armadilha da duplicação de linhas</li>
+              <li>Subqueries e CTEs para consultas legíveis</li>
+              <li>Window functions: ranking, acumulados e médias móveis</li>
+              <li>Trabalhando com datas e textos</li>
+              <li>Análises de funil e de cohort em SQL</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um conjunto de queries comentadas que responde às perguntas de negócio do projeto.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">03</span>
+          <span class="module-title">Python para Análise de Dados<span class="module-sub">Do zero ao pandas, sem pressupor programação</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Python essencial: variáveis, listas, dicionários, funções e laços</li>
+              <li>pandas: leitura de arquivos, filtros, <code>groupby</code>, <code>merge</code> e tabelas dinâmicas</li>
+              <li>Datas e séries temporais</li>
+              <li>Limpeza e transformação de dados</li>
+              <li>Conectar o Python ao banco SQL</li>
+              <li>Automatizar relatórios recorrentes</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um notebook que lê, limpa e consolida os dados do projeto automaticamente, com um clique.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">04</span>
+          <span class="module-title">Estatística e Probabilidade<span class="module-sub">A base para não tirar conclusões erradas</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Média, mediana e moda, e quando cada uma engana</li>
+              <li>Dispersão: desvio-padrão, quartis e intervalo interquartil</li>
+              <li>Distribuições: normal, binomial e Poisson, e assimetria</li>
+              <li>Probabilidade e probabilidade condicional</li>
+              <li>Amostragem e Teorema do Limite Central</li>
+              <li>Correlação × causalidade</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um resumo estatístico do dataset com a interpretação de cada indicador em linguagem de negócio.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">05</span>
+          <span class="module-title">Exploratory Data Analysis<span class="module-sub">Investigar os dados com método</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Um roteiro de EDA que funciona em qualquer base</li>
+              <li>Análise univariada e bivariada</li>
+              <li>Outliers: erro de dado ou informação valiosa?</li>
+              <li>Segmentações e comparações entre grupos</li>
+              <li>Formular hipóteses a partir do que os dados mostram</li>
+              <li>Documentar achados para não perder o raciocínio</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um relatório de análise exploratória com os principais achados e as hipóteses para investigar.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">06</span>
+          <span class="module-title">Data Visualization e BI<span class="module-sub">Gráficos que comunicam e dashboards que são usados</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Escolher o gráfico certo para cada pergunta</li>
+              <li>Princípios de design: hierarquia, cor e menos elementos</li>
+              <li>Gráficos que distorcem a informação e como evitá-los</li>
+              <li>Visualização em Python: matplotlib, seaborn e plotly</li>
+              <li>Power BI: importação, modelagem, relacionamentos e DAX essencial</li>
+              <li>Dashboards: layout, filtros e interatividade</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um dashboard interativo no Power BI respondendo às perguntas do projeto.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">07</span>
+          <span class="module-title">Business Analytics e KPIs<span class="module-sub">Medir o que importa para o negócio</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Definir KPIs a partir dos objetivos da empresa</li>
+              <li>Métricas de vendas, marketing, produto e finanças: conversão, ticket médio, CAC, LTV e churn</li>
+              <li>Árvore de métricas e métrica norte</li>
+              <li>Análise de cohort, retenção e funil</li>
+              <li>Segmentação de clientes com RFM</li>
+              <li>Metas, sazonalidade e comparação com benchmarks</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Uma árvore de KPIs do negócio do projeto e o painel para acompanhá-la.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">08</span>
+          <span class="module-title">Análise Estatística e Experimentação<span class="module-sub">Provar que a mudança funcionou, ou que não funcionou</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Intervalos de confiança</li>
+              <li>Testes de hipótese: teste t e qui-quadrado, e o p-valor sem mitos</li>
+              <li>Testes A/B: desenho, tamanho de amostra e duração</li>
+              <li>Poder estatístico e o problema das múltiplas comparações</li>
+              <li>Regressão linear para explicar relações entre variáveis</li>
+              <li>O que fazer quando não é possível rodar um experimento</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>A análise completa de um teste A/B, do desenho à recomendação final.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num">09</span>
+          <span class="module-title">Storytelling e Projetos<span class="module-sub">Transformar análise em decisão</span></span>
+        </summary>
+        <div class="module-body">
+          <div>
+            <h4>Conteúdo</h4>
+            <ul>
+              <li>Estrutura de narrativa com dados: contexto, conflito e resolução</li>
+              <li>Adaptar a mensagem ao público: diretoria × time técnico</li>
+              <li>Relatórios e apresentações executivas</li>
+              <li>Projeto de portfólio ponta a ponta com feedback individual</li>
+              <li>Montar o portfólio e se preparar para cases e entrevistas técnicas</li>
+            </ul>
+          </div>
+          <div class="module-deliverable">
+            <h4>Entregável</h4>
+            <p>Um projeto de portfólio com queries, notebook, dashboard e apresentação executiva, publicado no seu GitHub.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section id="para-quem" class="alt">
+  <div class="container">
+    <p class="section-label">Para quem é</p>
+    <h2 class="section-title">Veja se o curso <em>combina com você</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+      <div class="card fit-card fit-yes">
+        <h3>É para você se…</h3>
+        <ul>
+          <li>Você quer entrar na área de dados, começando do zero ou vindo do Excel</li>
+          <li>Trabalha com marketing, finanças, vendas ou operações e quer decidir com dados</li>
+          <li>Já é analista e quer trocar o trabalho manual em planilha por SQL e Python</li>
+          <li>Quer um portfólio sólido para conseguir a primeira vaga na área</li>
+        </ul>
+      </div>
+      <div class="card fit-card fit-no">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li>Você já domina SQL, Python e estatística e quer criar modelos. Veja <a href="data-science.html">Data Science</a></li>
+          <li>Quer construir pipelines e infraestrutura de dados. Veja <a href="data-engineering.html">Data Engineering</a></li>
+          <li>Precisa só de uma ferramenta específica, como o curso de <a href="../educacao.html#cursos">Power BI</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:14px;margin-top:24px;">
+      Na dúvida sobre o seu nível, <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20se%20o%20curso%20de%20Data%20Analyst%20%C3%A9%20para%20mim." target="_blank" rel="noopener" style="font-weight:600;">mande uma mensagem</a> contando o que você já sabe. A gente responde com sinceridade.
+    </p>
+  </div>
+</section>
+
+<!-- FORMATO -->
+<section id="formato">
+  <div class="container">
+    <p class="section-label">Formato</p>
+    <h2 class="section-title">Como as aulas <em>funcionam</em></h2>
+    <div class="section-rule"></div>
+    <div class="format-grid reveal">
+      <div class="format-item">
+        <h3>Ao vivo, com prática</h3>
+        <p>Aulas online pelo Google Meet. Queries, código e dashboards são feitos durante a aula, não lidos em slide.</p>
+      </div>
+      <div class="format-item">
+        <h3>Material que fica com você</h3>
+        <p>Notebooks, queries, arquivos de dashboard e o projeto final de cada módulo, para consultar quando precisar.</p>
+      </div>
+      <div class="format-item">
+        <h3>Dúvidas resolvidas</h3>
+        <p>Espaço para perguntas em toda aula e suporte entre os encontros.</p>
+      </div>
+      <div class="format-item">
+        <h3>Certificado</h3>
+        <p>Emitido com presença mínima de 75% e entrega dos exercícios, conforme os <a href="../termos-cursos.html">termos</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Sobre o <em>conteúdo</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Nunca programei. Consigo acompanhar?</summary>
+        <div class="faq-body">Sim. SQL é ensinado do zero no módulo 02 e Python no módulo 03. O curso não pressupõe experiência com programação.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto de matemática eu preciso saber?</summary>
+        <div class="faq-body">Matemática do ensino médio. O módulo 04 constrói a estatística necessária desde o início, sempre com exemplos de negócio.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso comprar o Power BI?</summary>
+        <div class="faq-body">Não. O Power BI Desktop é gratuito, mas roda apenas no Windows. Se você usa Mac, fale com a gente antes da inscrição para combinarmos a melhor alternativa.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual a diferença para o curso de Data Science?</summary>
+        <div class="faq-body">Data Analyst ensina a responder perguntas de negócio com dados: consultas, estatística, dashboards e experimentos. Data Science vai além, com modelos de Machine Learning. Para muita gente, Data Analyst é o primeiro passo antes de Data Science.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se o curso não for o que eu esperava?</summary>
+        <div class="faq-body">Você tem 7 dias de garantia com reembolso integral, conforme o art. 49 do Código de Defesa do Consumidor.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIÇÃO -->
+<section id="inscricao">
+  <div class="container">
+    <div class="enroll reveal">
+      <div class="enroll-left">
+        <p class="section-label">Inscrição</p>
+        <h2>Data Analyst: da pergunta de negócio à decisão</h2>
+        <p>Tudo o que está incluído:</p>
+        <ul>
+          <li>10 módulos ao vivo, do zero ao projeto de portfólio</li>
+          <li>Notebooks, queries e dashboards de todos os módulos</li>
+          <li>Projeto final com feedback individual</li>
+          <li>Suporte para dúvidas durante o curso</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+      <div class="enroll-right">
+        <span class="price-label">Investimento</span>
+        <!-- AJUSTE: troque por "R$ X.XXX" ou "12x de R$ XXX" quando definir o preço -->
+        <div class="price-value">Sob consulta</div>
+        <p>Valores para turma ou formato individual. Respondemos em até 24h úteis.</p>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20curso%20de%20Data%20Analyst%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="mailto:dtn.tecnology@gmail.com?subject=Curso%20de%20Data%20Analyst" class="btn btn-ghost">Prefiro por e-mail</a>
+        <small>Garantia de 7 dias · Certificado incluso</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA fixo (mobile) -->
+<div class="sticky-cta">
+  <span>Data Analyst · 10 módulos</span>
+  <a href="#inscricao" class="btn btn-solid">Inscrever-se</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20curso%20de%20Data%20Analyst." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
