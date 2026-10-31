@@ -3,830 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DTN – Data North | The Compass for Your Business</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:   #1a2232;
-      --navy2:  #232e42;
-      --slate:  #2e3d55;
-      --mist:   #8999b0;
-      --gold:   #b89a4e;
-      --gold-l: #d4b97a;
-      --white:  #f0f4f8;
-      --offwhite: #c8d4e0;
-      --accent: #4a8fc1;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(26,34,50,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(184,154,78,0.15);
-    }
-    .nav-logo img { height: 38px; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      color: var(--offwhite); text-decoration: none;
-      font-size: 13px; font-weight: 500; letter-spacing: .06em;
-      text-transform: uppercase; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--gold-l); }
-    .nav-cta {
-      background: var(--gold); color: var(--navy);
-      padding: 9px 22px; border-radius: 3px;
-      font-size: 13px; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; text-decoration: none;
-      transition: background .2s;
-    }
-    .nav-cta:hover { background: var(--gold-l); }
-
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      display: grid; place-items: center;
-      position: relative; overflow: hidden;
-      padding: 120px 60px 80px;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('assets/images/capa_2.0.png');
-      background-size: cover; background-position: center 40%;
-      filter: brightness(.38) saturate(.6);
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(26,34,50,.55) 0%,
-        rgba(26,34,50,.85) 60%,
-        var(--navy) 100%);
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; max-width: 860px;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(184,154,78,.4);
-      padding: 6px 18px; border-radius: 2px; margin-bottom: 32px;
-    }
-    .hero-title {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: clamp(48px, 7vw, 88px);
-      font-weight: 800; line-height: 1.0;
-      letter-spacing: -.02em;
-      color: var(--white);
-    }
-    .hero-title span { color: var(--gold); }
-    .hero-sub {
-      margin-top: 24px;
-      font-size: clamp(17px, 2vw, 21px);
-      font-weight: 300; color: var(--offwhite);
-      letter-spacing: .03em;
-    }
-    .hero-actions { margin-top: 48px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold); color: var(--navy);
-      padding: 15px 36px; border-radius: 3px;
-      font-weight: 700; font-size: 14px; letter-spacing: .07em;
-      text-transform: uppercase; text-decoration: none; transition: background .2s;
-    }
-    .btn-primary:hover { background: var(--gold-l); }
-    .btn-outline {
-      border: 1px solid rgba(184,154,78,.5); color: var(--gold-l);
-      padding: 15px 36px; border-radius: 3px;
-      font-weight: 500; font-size: 14px; letter-spacing: .07em;
-      text-transform: uppercase; text-decoration: none; transition: all .2s;
-    }
-    .btn-outline:hover { border-color: var(--gold-l); background: rgba(184,154,78,.08); }
-
-    /* ─── SECTION BASE ─── */
-    section { padding: 110px 60px; }
-    .section-label {
-      font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(32px, 4vw, 52px); font-weight: 700;
-      line-height: 1.1; color: var(--white);
-    }
-    .section-title em { font-style: normal; color: var(--gold); }
-    .divider {
-      width: 48px; height: 2px; background: var(--gold);
-      margin: 24px 0 48px;
-    }
-
-    /* ─── SERVICES ─── */
-    #services { background: var(--navy2); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2px; margin-top: 48px;
-    }
-    .service-card {
-      background: var(--navy); padding: 40px 36px;
-      border-top: 2px solid transparent;
-      transition: border-color .25s, background .25s;
-      cursor: default;
-    }
-    .service-card:hover {
-      border-color: var(--gold);
-      background: #1e2c3e;
-    }
-    .service-icon {
-      width: 44px; height: 44px; margin-bottom: 22px;
-      color: var(--gold);
-    }
-    .service-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: var(--white); margin-bottom: 12px;
-    }
-    .service-card p {
-      font-size: 14px; line-height: 1.7;
-      color: var(--mist);
-    }
-
-    /* ─── PROCESS ─── */
-    #process { background: var(--navy); }
-    .process-header { max-width: 620px; }
-    .process-badge {
-      display: inline-block; margin-top: 48px;
-      background: rgba(184,154,78,.1);
-      border: 1px solid rgba(184,154,78,.3);
-      color: var(--gold-l); font-size: 13px;
-      padding: 10px 24px; border-radius: 2px;
-      font-weight: 600; letter-spacing: .04em;
-    }
-    .process-steps {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 0; margin-top: 56px; position: relative;
-    }
-    .process-step {
-      padding: 40px 36px 40px 0;
-      border-left: 1px solid rgba(184,154,78,.2);
-      padding-left: 36px;
-      position: relative;
-    }
-    .step-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 48px; font-weight: 800;
-      color: rgba(184,154,78,.12); line-height: 1;
-      margin-bottom: 4px;
-    }
-    .process-step h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 17px; font-weight: 700;
-      color: var(--white); margin-bottom: 14px;
-    }
-    .process-step p {
-      font-size: 14px; line-height: 1.75; color: var(--mist);
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    #testimonials { background: var(--navy2); overflow: hidden; }
-    .testimonials-track-wrap { overflow: hidden; margin-top: 56px; position: relative; }
-    .testimonials-track-wrap::before,
-    .testimonials-track-wrap::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
-      pointer-events: none;
-    }
-    .testimonials-track-wrap::before { left: 0; background: linear-gradient(to right, var(--navy2), transparent); }
-    .testimonials-track-wrap::after  { right: 0; background: linear-gradient(to left,  var(--navy2), transparent); }
-    .testimonials-track {
-      display: flex; gap: 24px;
-      animation: scroll-left 30s linear infinite;
-      width: max-content;
-    }
-    .testimonials-track:hover { animation-play-state: paused; }
-    @keyframes scroll-left {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .testimonial-card {
-      background: var(--navy); border: 1px solid rgba(184,154,78,.12);
-      border-radius: 4px; padding: 36px 32px; width: 360px; flex-shrink: 0;
-    }
-    .stars { color: var(--gold); font-size: 15px; letter-spacing: 3px; margin-bottom: 18px; }
-    .testimonial-card blockquote {
-      font-size: 15px; line-height: 1.75; color: var(--offwhite);
-      font-style: italic; margin-bottom: 24px;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 14px; }
-    .avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--slate); display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold);
-      flex-shrink: 0;
-    }
-    .author-info .name { font-size: 14px; font-weight: 600; color: var(--white); }
-    .author-info .role { font-size: 12px; color: var(--mist); margin-top: 2px; }
-
-    /* ─── COURSES ─── */
-    #courses { background: var(--navy); }
-    .courses-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px; margin-top: 48px;
-    }
-    .course-card {
-      background: var(--navy2);
-      border: 1px solid rgba(184,154,78,.1);
-      border-radius: 4px; padding: 36px 32px;
-      transition: border-color .25s, transform .25s;
-    }
-    .course-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .course-tag {
-      font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(184,154,78,.3);
-      padding: 4px 10px; border-radius: 2px; display: inline-block; margin-bottom: 18px;
-    }
-    .course-card h3 {
-      font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 700;
-      color: var(--white); margin-bottom: 12px;
-    }
-    .course-card p { font-size: 14px; line-height: 1.7; color: var(--mist); }
-    .course-meta {
-      margin-top: 24px; display: flex; gap: 20px; flex-wrap: wrap;
-    }
-    .course-meta span {
-      font-size: 12px; color: var(--mist); display: flex; align-items: center; gap: 6px;
-    }
-    .course-meta svg { color: var(--gold); flex-shrink: 0; }
-
-    /* ─── CONTACT ─── */
-    #contact { background: var(--navy2); }
-    .contact-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-    }
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    .form-group label {
-      font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--mist);
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: var(--navy); border: 1px solid rgba(184,154,78,.2);
-      color: var(--white); padding: 13px 16px; font-size: 14px;
-      font-family: 'Inter', sans-serif; border-radius: 3px; outline: none;
-      transition: border-color .2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-group select option { background: var(--navy); }
-    .form-submit {
-      background: var(--gold); color: var(--navy);
-      border: none; padding: 15px 32px; font-size: 14px;
-      font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-      border-radius: 3px; cursor: pointer; transition: background .2s;
-      align-self: flex-start; font-family: 'Inter', sans-serif;
-    }
-    .form-submit:hover { background: var(--gold-l); }
-    .contact-info { padding-top: 8px; }
-    .contact-info h3 {
-      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700;
-      color: var(--white); margin-bottom: 20px;
-    }
-    .contact-info p { font-size: 15px; line-height: 1.75; color: var(--mist); margin-bottom: 40px; }
-    .contact-items { display: flex; flex-direction: column; gap: 20px; }
-    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
-    .contact-item-icon {
-      width: 40px; height: 40px; background: rgba(184,154,78,.1);
-      border: 1px solid rgba(184,154,78,.25); border-radius: 3px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: var(--gold);
-    }
-    .contact-item-text .label { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--mist); }
-    .contact-item-text .value { font-size: 14px; color: var(--white); margin-top: 3px; }
-    .contact-item-text a { color: var(--gold-l); text-decoration: none; }
-    .contact-item-text a:hover { text-decoration: underline; }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #111926;
-      padding: 40px 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid rgba(184,154,78,.1);
-      flex-wrap: wrap; gap: 20px;
-    }
-    footer img { height: 30px; }
-    footer p { font-size: 12px; color: var(--mist); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
-      .nav-links { display: none; }
-      section { padding: 80px 24px; }
-      #hero { padding: 100px 24px 60px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; padding: 32px 24px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .testimonials-track { animation: none; }
-    }
-  </style>
+  <title>DTN – Data North | Tecnologia e dados com direção clara</title>
+  <meta name="description" content="Soluções de IA e dados para empresas. Cursos e aulas para quem quer aprender. DTN – The compass for your business." />
+  <meta property="og:title" content="DTN – Data North" />
+  <meta property="og:description" content="Tecnologia e dados com direção clara. Soluções B2B e educação em IA." />
+  <meta property="og:image" content="assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="assets/images/dtn_logo.png" type="image/png" />
+  <link rel="canonical" href="https://datanorth.com.br/" />
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
 
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
 <!-- NAV -->
-<nav>
-  <div class="nav-brand" style="display:flex; align-items:center; gap:10px;">
-
-    <div class="nav-logo">
-      <img src="assets/images/dtn_logo.png" alt="DTN Logo">
-    </div>
-
-    <span class="nav-tagline" style="color:#D4AF37;">
-      The compass for your business
-    </span>
-
-  </div>
-
-  <ul class="nav-links">
-    <li><a href="#services">Serviços</a></li>
-    <li><a href="#process">Processo</a></li>
-    <li><a href="#testimonials">Clientes</a></li>
-    <li><a href="#courses">Cursos</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ul>
-
-  <a href="#contact" class="nav-cta">
-    Diagnóstico grátis
+<nav aria-label="Navegação principal">
+  <a href="index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
   </a>
-</nav>
-<!-- <nav>
-  <div class="nav-logo">
-    <img src="assets/images/dtn_logo.png" alt="DTN Logo">
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="empresas.html">Empresas</a></li>
+      <li><a href="educacao.html">Educação</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="#contato" class="nav-cta">Fale conosco</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="#services">Serviços</a></li>
-    <li><a href="#process">Processo</a></li>
-    <li><a href="#testimonials">Clientes</a></li>
-    <li><a href="#courses">Cursos</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Diagnóstico grátis</a>
-</nav> -->
+</nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Data North · Consultoria em Tecnologia & IA</span>
-    <h1 class="hero-title">
-      A bússola<br/>para o seu<br/><span>negócio.</span>
-    </h1>
-    <p class="hero-sub">Transformamos dados, processos e tecnologia em vantagem competitiva real.<br/>Do diagnóstico à entrega — em semanas, não em meses.</p>
+  <div class="hero-mountain">
+    <img src="assets/images/capa_2.0.png" alt="" aria-hidden="true" width="2000" height="1200" loading="eager" />
+  </div>
+  <div class="hero-content reveal">
+    <span class="hero-eyebrow">DTN · Data North</span>
+    <h1 class="hero-title">Tecnologia e dados<br/>com direção clara.</h1>
+    <p class="hero-sub">Soluções de IA e dados para empresas. Cursos e aulas para quem quer aprender. Tudo com a bússola certa.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Diagnóstico gratuito</a>
-      <a href="#services" class="btn-outline">Ver serviços</a>
+      <a href="empresas.html" class="btn btn-solid">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polygon points="12,5 14.5,11 12,12 9.5,11" fill="currentColor" stroke="none"/><polygon points="12,19 9.5,13 12,12 14.5,13" fill="currentColor" stroke="none" opacity=".45"/></svg>
+        Para empresas
+      </a>
+      <a href="educacao.html" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4L2 9.5l10 5.5 10-5.5L12 4z"/><path d="M6 12v4.5c0 1.5 2.7 3 6 3s6-1.5 6-3V12"/></svg>
+        Para aprender
+      </a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Diagnóstico gratuito</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Resposta em até 24h úteis</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Projetos de 2 a 4 semanas</span>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <p class="section-label">O que fazemos</p>
-  <h2 class="section-title">Soluções que <em>movem</em><br/>o ponteiro dos resultados</h2>
-  <div class="divider"></div>
-  <div class="services-grid">
+<!-- DOORS -->
+<section id="doors" style="padding-top:0;">
+  <div class="container">
+    <div class="doors reveal">
 
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      <h3>Chatbots & WhatsApp</h3>
-      <p>Atendimento automatizado 24/7 no canal onde seus clientes já estão. Qualificação de leads, suporte e vendas sem esforço humano repetitivo.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
-        <line x1="6" y1="20" x2="6" y2="14"/>
-      </svg>
-      <h3>Análise de Dados</h3>
-      <p>Dashboards, relatórios e modelos preditivos que convertem volumes de dados em decisões rápidas e embasadas para a sua liderança.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
-        <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
-      </svg>
-      <h3>Automação de Processos</h3>
-      <p>Eliminamos tarefas manuais e repetitivas com RPA e integrações inteligentes. Sua equipe faz o que só gente faz — o resto, a máquina resolve.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-      </svg>
-      <h3>Inteligência Artificial</h3>
-      <p>Implementamos modelos de IA aplicados ao seu contexto: NLP, visão computacional, recomendação, classificação e muito mais.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-      <h3>CRM & Gestão de Clientes</h3>
-      <p>Estruturamos sua jornada de clientes do primeiro contato à retenção. Configuração, integração e automação de CRM do zero.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-      </svg>
-      <h3>Desenvolvimento Web & APIs</h3>
-      <p>Aplicações web modernas, landing pages de alta conversão e APIs robustas para conectar sistemas e escalar sua operação digital.</p>
-    </div>
-
-    <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-      </svg>
-      <h3>Cloud & Servidores</h3>
-      <p>Migração, configuração e otimização em AWS, GCP e Azure. Infraestrutura segura, escalável e com custo sob controle.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="process-header">
-    <p class="section-label">Como trabalhamos</p>
-    <h2 class="section-title">Da conversa ao<br/>resultado <em>em semanas</em></h2>
-    <div class="divider"></div>
-    <span class="process-badge">⏱ Tempo médio de entrega: 2 a 4 semanas</span>
-  </div>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <h3>Diagnóstico Gratuito</h3>
-      <p>Entendemos os gargalos do seu negócio, mapeamos processos e identificamos onde tecnologia gera mais valor — sem custo e sem compromisso.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <h3>Proposta Sob Medida</h3>
-      <p>Desenhamos uma solução com escopo, prazo e investimento claros. Nada de surpresas no caminho nem escopo inflado.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <h3>Entrega & Capacitação</h3>
-      <p>Implementamos, testamos e treinamos sua equipe. Você fica no controle desde o primeiro dia — sem dependência de nós para operar.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <h3>Suporte Contínuo</h3>
-      <p>Monitoramos, evoluímos e ajustamos a solução conforme o seu negócio cresce. Parceria de longo prazo, não projeto pontual.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <p class="section-label">Clientes</p>
-  <h2 class="section-title">O que dizem sobre <em>nós</em></h2>
-  <div class="divider"></div>
-  <div class="testimonials-track-wrap">
-    <div class="testimonials-track" id="track">
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"A DTN transformou nosso processo de atendimento. O chatbot no WhatsApp atende 80% das dúvidas sozinho — nossa equipe agora foca no que realmente importa."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">RC</div>
-          <div class="author-info">
-            <div class="name">Rafael Costa</div>
-            <div class="role">CEO · Loja Virtual de Moda</div>
-          </div>
-        </div>
+      <div class="door-card door-card--biz">
+        <svg class="door-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="18" cy="18" r="15" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="18,5 22,15 18,17 14,15" fill="currentColor"/>
+          <polygon points="18,31 14,21 18,19 22,21" fill="currentColor" opacity="0.3"/>
+          <circle cx="18" cy="18" r="2" fill="currentColor"/>
+        </svg>
+        <h3>Para empresas</h3>
+        <ul>
+          <li>Atendimento automatizado no WhatsApp</li>
+          <li>Decisões com dashboards em semanas</li>
+          <li>Processos manuais eliminados</li>
+        </ul>
+        <a href="empresas.html" class="btn btn-solid">Ver soluções</a>
       </div>
 
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Em três semanas entregaram um dashboard completo com todos os KPIs que eu precisava. Finalmente consigo tomar decisões com dados reais, não intuição."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">AM</div>
-          <div class="author-info">
-            <div class="name">Ana Mendes</div>
-            <div class="role">Diretora Comercial · Distribuidora</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"A automação que desenvolveram eliminou 6 horas de trabalho manual por dia da minha equipe financeira. O ROI veio no primeiro mês."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">BF</div>
-          <div class="author-info">
-            <div class="name">Bruno Ferreira</div>
-            <div class="role">CFO · Construtora Regional</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Nunca pensei que implantaríamos IA de forma tão prática. A DTN traduziu tudo para a realidade do nosso negócio — sem complicação, sem jargão."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">JS</div>
-          <div class="author-info">
-            <div class="name">Juliana Souza</div>
-            <div class="role">Fundadora · Clínica de Estética</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Migramos para a cloud com zero downtime e reduzimos nosso custo de infraestrutura em 40%. Suporte impecável do início ao fim."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">PT</div>
-          <div class="author-info">
-            <div class="name">Paulo Torres</div>
-            <div class="role">CTO · SaaS de RH</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Duplicate for infinite scroll -->
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"A DTN transformou nosso processo de atendimento. O chatbot no WhatsApp atende 80% das dúvidas sozinho — nossa equipe agora foca no que realmente importa."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">RC</div>
-          <div class="author-info">
-            <div class="name">Rafael Costa</div>
-            <div class="role">CEO · Loja Virtual de Moda</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Em três semanas entregaram um dashboard completo com todos os KPIs que eu precisava. Finalmente consigo tomar decisões com dados reais, não intuição."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">AM</div>
-          <div class="author-info">
-            <div class="name">Ana Mendes</div>
-            <div class="role">Diretora Comercial · Distribuidora</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"A automação que desenvolveram eliminou 6 horas de trabalho manual por dia da minha equipe financeira. O ROI veio no primeiro mês."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">BF</div>
-          <div class="author-info">
-            <div class="name">Bruno Ferreira</div>
-            <div class="role">CFO · Construtora Regional</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Nunca pensei que implantaríamos IA de forma tão prática. A DTN traduziu tudo para a realidade do nosso negócio — sem complicação, sem jargão."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">JS</div>
-          <div class="author-info">
-            <div class="name">Juliana Souza</div>
-            <div class="role">Fundadora · Clínica de Estética</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Migramos para a cloud com zero downtime e reduzimos nosso custo de infraestrutura em 40%. Suporte impecável do início ao fim."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">PT</div>
-          <div class="author-info">
-            <div class="name">Paulo Torres</div>
-            <div class="role">CTO · SaaS de RH</div>
-          </div>
-        </div>
+      <div class="door-card door-card--edu">
+        <svg class="door-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <path d="M18 4L4 12l14 8 14-8L18 4z" fill="currentColor"/>
+          <path d="M8 14v10c0 2 4.5 5 10 5s10-3 10-5V14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="28" y1="12" x2="28" y2="24" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h3>Para aprender</h3>
+        <ul>
+          <li>Cursos de IA e dados, do zero ao aplicado</li>
+          <li>Aulas particulares no seu ritmo</li>
+          <li>Conteúdo gratuito nos canais</li>
+        </ul>
+        <a href="educacao.html" class="btn btn-solid" style="background:var(--glacier);color:#fff;">Ver cursos</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- COURSES -->
-<section id="courses">
-  <p class="section-label">Capacitação</p>
-  <h2 class="section-title">Cursos & <em>Aulas particulares</em></h2>
-  <div class="divider"></div>
-  <p style="max-width:580px;font-size:15px;line-height:1.8;color:var(--mist);margin-bottom:0;">
-    Além de implementar, ensinamos. Nossos cursos e mentorias individuais tornam você e sua equipe independentes para usar IA e tecnologia no dia a dia.
-  </p>
-  <div class="courses-grid">
-
-    <div class="course-card">
-      <span class="course-tag">Iniciante · Intermediário</span>
-      <h3>IA para Negócios na Prática</h3>
-      <p>Como usar ChatGPT, Copilot e ferramentas de IA generativa para ganhar produtividade real — sem saber programar.</p>
-      <div class="course-meta">
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          8 horas
-        </span>
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Online ou presencial
-        </span>
+<!-- GARANTIAS -->
+<section id="garantias" style="padding-top:0;">
+  <div class="container">
+    <div class="guarantee-band reveal">
+      <div class="guarantee-item">
+        <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+        <div>
+          <h3>Garantia de 7 dias</h3>
+          <p>Reembolso integral nos cursos, sem burocracia (CDC art. 49).</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polygon points="12,5 14.5,11 12,12 9.5,11" fill="currentColor" stroke="none"/><polygon points="12,19 9.5,13 12,12 14.5,13" fill="currentColor" stroke="none" opacity=".45"/></svg></span>
+        <div>
+          <h3>Diagnóstico gratuito</h3>
+          <p>Para empresas: mapeamos melhorias sem custo e sem compromisso.</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></span>
+        <div>
+          <h3>Resposta em 24h</h3>
+          <p>Dias úteis, em qualquer canal — WhatsApp, e-mail ou LinkedIn.</p>
+        </div>
       </div>
     </div>
-
-    <div class="course-card">
-      <span class="course-tag">Intermediário · Avançado</span>
-      <h3>Automação com n8n & Make</h3>
-      <p>Construa fluxos de automação poderosos sem código. Integre CRM, e-mail, WhatsApp e dezenas de ferramentas em horas.</p>
-      <div class="course-meta">
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          12 horas
-        </span>
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Online
-        </span>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <span class="course-tag">Todos os níveis</span>
-      <h3>Análise de Dados com Python</h3>
-      <p>Do Excel ao Python: pandas, visualização e dashboards interativos. Ideal para analistas e gestores que querem ir além do básico.</p>
-      <div class="course-meta">
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          20 horas
-        </span>
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Online ou presencial
-        </span>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <span class="course-tag">Mentoria Individual</span>
-      <h3>Aulas Particulares de IA</h3>
-      <p>Sessões 1:1 totalmente adaptadas ao seu ritmo, área e objetivos. Do conceito à aplicação direta no seu trabalho.</p>
-      <div class="course-meta">
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Flexível
-        </span>
-        <span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Online · Google Meet
-        </span>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <p class="section-label">Contato</p>
-  <h2 class="section-title">Vamos construir<br/>algo <em>juntos?</em></h2>
-  <div class="divider"></div>
-  <div class="contact-inner">
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nome</label>
-          <input type="text" placeholder="Seu nome completo" />
+<!-- WHY DTN -->
+<section id="why" class="alt">
+  <div class="container">
+    <p class="section-label">Por que a DTN</p>
+    <h2 class="section-title">Três pilares que <em>não negociamos</em></h2>
+    <div class="section-rule"></div>
+    <div class="pillars reveal">
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="14" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 36c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        <h3>Mãos seniores, não júnior</h3>
+        <p>Quem desenha sua solução é quem implementa. Sem repasse para estagiários, sem camadas de gerência que diluem o conhecimento.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="6" y1="16" x2="34" y2="16" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="14" y1="22" x2="26" y2="22" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="14" y1="27" x2="22" y2="27" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h3>Linguagem de negócio, não jargão</h3>
+        <p>Traduzimos tecnologia para resultados mensuráveis. Você entende cada decisão porque falamos a língua do seu P&amp;L, não de papers acadêmicos.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 6v14l8 8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        <h3>Você fica no controle após a entrega</h3>
+        <p>Capacitamos sua equipe durante o projeto. Ao final, você opera sozinho — sem dependência eterna de consultoria.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (hub) -->
+<section id="contato">
+  <div class="container">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos construir algo <em>juntos?</em></h2>
+    <div class="section-rule"></div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" data-wa="5511947350715" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome-hub">Nome *</label>
+            <input type="text" id="nome-hub" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="empresa-hub">Empresa</label>
+            <input type="text" id="empresa-hub" name="empresa" placeholder="Nome da empresa" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email-hub">E-mail</label>
+            <input type="email" id="email-hub" name="email" placeholder="seu@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="whatsapp-hub">WhatsApp</label>
+            <input type="tel" id="whatsapp-hub" name="whatsapp" placeholder="(11) 99999-9999" />
+          </div>
         </div>
         <div class="form-group">
-          <label>Empresa</label>
-          <input type="text" placeholder="Nome da empresa" />
+          <label for="interesse-hub">Área de interesse</label>
+          <select id="interesse-hub" name="interesse">
+            <option value="">Selecione…</option>
+            <option>Soluções para empresas</option>
+            <option>Cursos e capacitação</option>
+            <option>Aulas particulares</option>
+            <option>Outro</option>
+          </select>
         </div>
-      </div>
-      <div class="form-row">
         <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" placeholder="seu@email.com" />
+          <label for="mensagem-hub">Conte um pouco sobre o seu desafio</label>
+          <textarea id="mensagem-hub" name="mensagem" placeholder="Descreva o problema ou objetivo…"></textarea>
         </div>
-        <div class="form-group">
-          <label>WhatsApp</label>
-          <input type="tel" placeholder="(11) 99999-9999" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Área de interesse</label>
-        <select>
-          <option value="">Selecione um serviço...</option>
-          <option>Chatbots & WhatsApp</option>
-          <option>Análise de Dados</option>
-          <option>Automação de Processos</option>
-          <option>Inteligência Artificial</option>
-          <option>CRM & Gestão de Clientes</option>
-          <option>Desenvolvimento Web & APIs</option>
-          <option>Cloud & Servidores</option>
-          <option>Cursos / Aulas Particulares</option>
-          <option>Outro</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Conte um pouco sobre o seu desafio</label>
-        <textarea placeholder="Descreva o problema ou objetivo que você quer resolver..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Solicitar diagnóstico gratuito →</button>
-    </form>
+        <button type="submit" class="form-submit">Enviar via WhatsApp</button>
+        <p class="form-hint">Ao enviar, você será redirecionado para o WhatsApp com a mensagem pré-preenchida. Seus dados não são armazenados neste site.</p>
+      </form>
 
-    <div class="contact-info">
-      <h3>Fale diretamente com a nossa equipe</h3>
-      <p>Respondemos em até 24 horas. Para urgências, entre em contato pelo WhatsApp — atendemos de segunda a sexta, das 9h às 18h.</p>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-item-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <div class="contact-item-text">
-            <div class="label">WhatsApp</div>
-            <div class="value"><a href="https://wa.me/5500000000000" target="_blank">(11) 94735-0715</a></div>
+      <aside class="contact-aside reveal" aria-label="Canais diretos de contato">
+        <span class="response-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respondemos em até 24h úteis
+        </span>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div>
+            <div class="ic-label">WhatsApp</div>
+            <div class="ic-value"><a href="https://wa.me/5511947350715" target="_blank" rel="noopener">(11) 94735-0715</a></div>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <div class="contact-item-text">
-            <div class="label">E-mail</div>
-            <div class="value"><a href="mailto:contato@datanorth.com.br">dtn.tecnology@gmail.com</a></div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <div>
+            <div class="ic-label">E-mail</div>
+            <div class="ic-value"><a href="mailto:dtn.tecnology@gmail.com">dtn.tecnology@gmail.com</a></div>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-            </svg>
-          </div>
-          <div class="contact-item-text">
-            <div class="label">LinkedIn</div>
-            <div class="value"><a href="https://www.linkedin.com/in/datanorth-dtn-tecnology-9ba758418/" target="_blank">dtn - Linkedin</a></div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+          <div>
+            <div class="ic-label">LinkedIn</div>
+            <div class="ic-value"><a href="https://www.linkedin.com/in/datanorth-dtn-tecnology-9ba758418/" target="_blank" rel="noopener">/datanorth-dtn</a></div>
           </div>
         </div>
-      </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Horário</div>
+            <div class="ic-value">Segunda a sexta, 9h às 18h</div>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
-  <img src="assets/images/dtn_logo.png" alt="DTN Logo">
-  <p>© 2025 DTN – Data North. Todos os direitos reservados.</p>
-  <p style="font-size:11px;color:var(--slate)">The compass for your business.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="privacidade.html">Privacidade (LGPD)</a>
+      <a href="termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:dtn.tecnology@gmail.com">E-mail</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
 </footer>
 
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Mensagem enviada!';
-    btn.style.background = '#2e8b57';
-    setTimeout(() => {
-      btn.textContent = 'Solicitar diagnóstico gratuito →';
-      btn.style.background = '';
-    }, 3000);
-  }
-</script>
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DTN." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>

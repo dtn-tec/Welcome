@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analyst | Trilha de carreira DTN Educação</title>
+  <meta name="description" content="Trilha de Data Analyst da DTN: SQL, Excel avançado, Power BI e storytelling com dados. A porta de entrada mais rápida para trabalhar com dados, sem precisar programar." />
+  <meta property="og:title" content="Data Analyst | DTN Educação" />
+  <meta property="og:description" content="SQL, Excel avançado, Power BI e storytelling com dados — a porta de entrada para a área de dados." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="canonical" href="https://datanorth.com.br/cursos/data-analyst" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#perfil">Para quem é</a></li>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#oferta">Investimento</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <a href="../empresas.html" class="track-switcher" aria-label="Ir para o site de Empresas">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2M6 4L2 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Para empresas
+    </a>
+    <a href="#oferta" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO · TOPO DO FUNIL -->
+<section id="hero">
+  <div class="hero-mountain">
+    <img src="../assets/images/capa_2.0.png" alt="" aria-hidden="true" width="2000" height="1200" loading="eager" />
+  </div>
+  <div class="hero-content reveal">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <a href="../educacao.html">Educação</a>
+      <span class="bc-sep" aria-hidden="true">/</span>
+      <span class="bc-current">Data Analyst</span>
+    </nav>
+    <span class="hero-eyebrow">Trilha de carreira · Iniciante</span>
+    <h1 class="hero-title">Data Analyst</h1>
+    <p class="hero-sub">A porta de entrada mais rápida na área de dados: SQL, Excel avançado, Power BI e storytelling. Sem precisar programar — e com um dashboard real no portfólio ao final.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Analyst%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Falar com um consultor</a>
+      <a href="#programa" class="btn btn-ghost">Ver o programa completo</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>40 horas ao vivo</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Não exige programação</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>Dashboard no portfólio</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section id="dor" style="padding-top:0;">
+  <div class="container">
+    <p class="section-label">O ponto de partida</p>
+    <h2 class="section-title">O relatório que você monta à mão <em>toda semana</em></h2>
+    <div class="section-rule"></div>
+    <div class="pain-grid reveal">
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        <h3>Planilha frágil que quebra sozinha</h3>
+        <p>Uma fórmula arrastada errado, uma coluna inserida e o número que foi para a diretoria estava errado. Você confere três vezes e ainda dorme mal.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        <h3>Retrabalho que consome seu dia</h3>
+        <p>Copiar, colar, formatar, enviar. Toda segunda-feira a mesma rotina manual — enquanto alguém pergunta se "dá para incluir mais um recorte".</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <h3>Depender de alguém para acessar o dado</h3>
+        <p>Sem SQL, cada pergunta nova vira um chamado, uma fila e três dias de espera. Você fica refém de quem tem acesso ao banco.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/><line x1="3" y1="9" x2="21" y2="9" stroke-dasharray="2 3"/></svg>
+        <h3>Dashboard bonito que ninguém usa</h3>
+        <p>Você monta o painel, entrega orgulhoso — e na reunião seguinte continuam decidindo pela planilha antiga. Faltou pergunta de negócio, não faltou gráfico.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil" class="alt">
+  <div class="container">
+    <p class="section-label">Perfil</p>
+    <h2 class="section-title">Para quem é — e para quem <em>não é</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+
+      <div class="fit-col fit-col--yes">
+        <h3><span class="fit-mark" aria-hidden="true">✓</span>Esta trilha é para você se</h3>
+        <ul class="check-list">
+          <li>Trabalha com planilha, relatório ou indicador e quer parar de fazer tudo à mão.</li>
+          <li>Quer entrar na área de dados sem começar por programação.</li>
+          <li>É de financeiro, comercial, logística, RH ou marketing e virou "a pessoa dos números" do time.</li>
+          <li>Precisa aprender SQL para ter autonomia sobre o banco de dados da empresa.</li>
+          <li>Quer um portfólio com dashboard publicado para mostrar em processo seletivo.</li>
+        </ul>
+      </div>
+
+      <div class="fit-col fit-col--no">
+        <h3><span class="fit-mark" aria-hidden="true">✕</span>Não é para você se</h3>
+        <ul class="check-list cross-list">
+          <li>Quer construir modelo preditivo e fazer inferência estatística — vá para <a href="data-science.html">Data Science</a>.</li>
+          <li>Quer montar pipeline, warehouse e infraestrutura de dados — vá para <a href="data-engineer.html">Data Engineer</a>.</li>
+          <li>Já domina SQL e Power BI e busca só refinamento pontual: <a href="../educacao.html#aulas">aulas particulares</a> rendem mais.</li>
+          <li>Procura curso gravado para assistir quando der vontade. Aqui há encontro ao vivo e entrega de exercício.</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="prereq reveal">
+      <h4>Pré-requisitos</h4>
+      <p>Nenhum. Sinceramente: é a trilha com a barreira de entrada mais baixa do nosso catálogo. Conhecimento básico de Excel (soma, filtro, formatação) acelera as duas primeiras semanas, mas não é obrigatório. Não exigimos programação, estatística nem experiência prévia com dados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="container">
+    <p class="section-label">Resultado</p>
+    <h2 class="section-title">O que você sai <em>fazendo</em></h2>
+    <div class="section-rule"></div>
+    <div class="pillars reveal">
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="10" rx="12" ry="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 10v20c0 2.2 5.4 4 12 4s12-1.8 12-4V10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 20c0 2.2 5.4 4 12 4s12-1.8 12-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Buscar o dado sozinho, com SQL</h3>
+        <p>SELECT, joins, agregações, subconsultas e window functions. Você para de abrir chamado para descobrir um número e passa a responder em minutos.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="14" x2="16" y2="34" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Automatizar a planilha que você refaz toda semana</h3>
+        <p>Power Query para importar e limpar, fórmulas robustas e tabela dinâmica bem construída. O relatório passa a atualizar sozinho quando o dado chega.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="6" width="30" height="22" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 22V14M17 22V10M24 22V17M31 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="34" x2="26" y2="34" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Modelar e publicar dashboard no Power BI</h3>
+        <p>Relações entre tabelas, medidas em DAX, filtros interativos e publicação. Painel que sustenta reunião de decisão, não só enfeita a tela.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 6v14l10 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Escolher o gráfico que responde à pergunta</h3>
+        <p>Por que pizza quase sempre é a resposta errada, quando usar linha, barra ou dispersão — e como hierarquia visual guia o olho de quem decide.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 10h24v16H20l-6 6v-6H8z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><line x1="14" y1="16" x2="26" y2="16" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="21" x2="22" y2="21" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Apresentar número para quem não é de dados</h3>
+        <p>Storytelling com estrutura de conclusão primeiro, contexto depois. Você aprende a transformar análise em recomendação clara.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6l12 6v12c0 6.6-5 10.6-12 12-7-1.4-12-5.4-12-12V12z" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="14,20 18,24 26,15" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Levantar requisito antes de construir</h3>
+        <p>A habilidade que mais reduz retrabalho: perguntar qual decisão o painel sustenta, quem usa e com que frequência — antes de abrir o Power BI.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section id="programa" class="alt">
+  <div class="container">
+    <p class="section-label">Programa</p>
+    <h2 class="section-title">Cinco módulos, do Excel <em>ao dashboard publicado</em></h2>
+    <div class="section-rule"></div>
+    <p style="max-width:620px;font-size:15px;line-height:1.8;margin-bottom:0;">
+      A sequência segue a ordem real do trabalho de um analista: entender a pergunta, buscar o dado, tratar, visualizar e apresentar.
+    </p>
+    <div class="module-list reveal">
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">01</span>
+          <span class="module-title">O trabalho do analista e a pergunta de negócio</span>
+          <span class="module-hours">6h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>O que faz um analista de dados no dia a dia — e o que não faz</li>
+            <li>Do pedido vago ("quero um relatório de vendas") à pergunta respondível</li>
+            <li>Métricas, dimensões, granularidade e recorte de tempo</li>
+            <li>Levantamento de requisito: quem decide o quê com esse dado</li>
+          </ul>
+          <p class="module-outcome">Entrega: escopo escrito do dashboard que será o seu projeto final.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">02</span>
+          <span class="module-title">SQL para análise</span>
+          <span class="module-hours">12h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>SELECT, WHERE, ORDER BY e a anatomia de uma consulta</li>
+            <li>Joins na prática: inner, left, right — e por que o resultado muda</li>
+            <li>Agregações com GROUP BY e HAVING</li>
+            <li>Subconsultas, CTEs e consultas legíveis</li>
+            <li>Window functions: ranking, acumulado e comparação com período anterior</li>
+            <li>Boas práticas: performance básica e cuidado com dado sensível</li>
+          </ul>
+          <p class="module-outcome">Entrega: consultas SQL que extraem os dados do seu projeto final.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">03</span>
+          <span class="module-title">Excel avançado e Power Query</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Fórmulas essenciais: PROCV/XLOOKUP, SOMASES, SE, tratamento de texto e data</li>
+            <li>Tabelas nomeadas e por que elas evitam planilha quebrada</li>
+            <li>Power Query: importar, limpar e transformar sem macro</li>
+            <li>Consolidação de várias fontes em uma base única e atualizável</li>
+            <li>Tabela dinâmica bem construída e segmentação de dados</li>
+          </ul>
+          <p class="module-outcome">Entrega: rotina manual do seu trabalho transformada em processo atualizável.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">04</span>
+          <span class="module-title">Power BI: modelagem, DAX e visualização</span>
+          <span class="module-hours">10h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Modelo estrela: fato, dimensão e relações corretas</li>
+            <li>DAX essencial: medidas, CALCULATE, inteligência de tempo (YTD, MTD, comparativo)</li>
+            <li>Escolha de visual, hierarquia e drill-down</li>
+            <li>Filtros, tooltips, bookmarks e navegação entre páginas</li>
+            <li>Publicação, atualização agendada e controle de acesso</li>
+          </ul>
+          <p class="module-outcome">Entrega: dashboard funcional do projeto final, pronto para publicar.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">05</span>
+          <span class="module-title">Storytelling com dados e projeto final</span>
+          <span class="module-hours">4h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Estrutura de apresentação executiva: conclusão, evidência, recomendação</li>
+            <li>Design de dashboard: ruído visual, cor com propósito e leitura em 5 segundos</li>
+            <li>Como defender seu número quando alguém questiona</li>
+            <li>Apresentação final com feedback individual</li>
+          </ul>
+          <p class="module-outcome">Entrega: dashboard publicado + apresentação de 10 minutos do projeto final.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <p class="section-label">Investimento</p>
+    <h2 class="section-title">O que está <em>incluído</em></h2>
+    <div class="section-rule"></div>
+    <span class="scarcity-badge"><span class="dot" aria-hidden="true"></span>Turmas com vagas limitadas para manter o acompanhamento</span>
+    <div class="offer-grid reveal">
+
+      <div class="offer-card">
+        <h3>Trilha completa de Data Analyst</h3>
+        <p class="offer-lead">40 horas ao vivo, em turma pequena, com correção individual dos exercícios e um dashboard real publicado ao final.</p>
+        <ul class="offer-list">
+          <li>40h de aulas ao vivo via Google Meet (não é vídeo gravado genérico)</li>
+          <li>Correção individual dos exercícios de SQL, Excel e Power BI</li>
+          <li>Projeto final com dado real seu, da sua empresa ou dataset fornecido</li>
+          <li>Banco de dados de prática e material de apoio inclusos</li>
+          <li>Grupo de dúvidas com o instrutor durante a trilha</li>
+          <li>Certificado de conclusão com carga horária</li>
+          <li>Gravação das aulas por 6 meses para revisão</li>
+          <li>Feedback final sobre o portfólio</li>
+        </ul>
+        <div class="offer-price">
+          <div class="op-label">Investimento</div>
+          <div class="op-value">Sob consulta</div>
+          <p class="op-note">Condições e parcelamento definidos na conversa, conforme turma individual ou em grupo. Emitimos nota fiscal e atendemos pagamento por empresa.</p>
+        </div>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Analyst%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Receber valores e próximas turmas
+        </a>
+        <p class="offer-fine">Garantia de 7 dias: reembolso integral, sem burocracia (CDC art. 49).</p>
+      </div>
+
+      <aside class="offer-side reveal" aria-label="Garantias e detalhes da trilha">
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <div>
+            <div class="ic-label">Risco zero</div>
+            <div class="ic-value">7 dias de garantia incondicional. Se não for para você, devolvemos 100%.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Dedicação semanal</div>
+            <div class="ic-value">Cerca de 4h de aula + 2h de exercício. Duração típica: 10 semanas.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></span>
+          <div>
+            <div class="ic-label">Ferramentas</div>
+            <div class="ic-value">Power BI Desktop e SQL são gratuitos. Nenhum software pago é necessário.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+          <div>
+            <div class="ic-label">Turma pequena</div>
+            <div class="ic-value">Vagas limitadas para que todo exercício seja corrigido um a um.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg></span>
+          <div>
+            <div class="ic-label">Certificado</div>
+            <div class="ic-value">Emitido ao final, com carga horária e conteúdo programático.</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Antes de você <em>se inscrever</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+
+      <details class="faq-item">
+        <summary>Eu nunca programei. Consigo acompanhar?</summary>
+        <div class="faq-body">Sim. SQL é uma linguagem declarativa: você descreve o que quer, não escreve algoritmo. É a parte mais acessível de toda a área de dados, e a maioria dos alunos domina o essencial em três semanas. Não há Python nesta trilha.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Preciso comprar licença do Power BI?</summary>
+        <div class="faq-body">Não. O Power BI Desktop é gratuito e faz tudo o que usamos em aula: modelagem, DAX e criação dos visuais. A licença Pro só é necessária se a sua empresa quiser publicar em workspace compartilhado com controle de acesso — e isso é decisão dela, não requisito do curso.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Não tenho acesso a dados reais no meu trabalho. E agora?</summary>
+        <div class="faq-body">Fornecemos bases de prática realistas (vendas, financeiro, logística) para todos os exercícios e para o projeto final. Se você tiver acesso a dado da sua empresa, melhor ainda — usamos ele, com os devidos cuidados de anonimização conforme nossa <a href="../privacidade.html">Política de Privacidade</a>.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Já sou analista. Essa trilha ainda vale para mim?</summary>
+        <div class="faq-body">Vale se hoje você depende de planilha manual, não domina SQL ou monta dashboard sem critério de negócio. Muitos alunos já trabalham na área e fazem a trilha justamente para sair do operacional repetitivo e ganhar autonomia. Se o seu caso é refinamento pontual, <a href="../educacao.html#aulas">aulas particulares</a> são mais eficientes.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Qual a diferença entre Data Analyst e Data Science?</summary>
+        <div class="faq-body">Data Analyst descreve e explica o que aconteceu, com SQL, Excel e Power BI — e sustenta decisões do dia a dia. Data Science vai além: estatística inferencial e modelagem preditiva em Python, para antecipar o que vai acontecer. A trilha de analista é o pré-requisito natural para a de ciência de dados.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>E se eu perder uma aula?</summary>
+        <div class="faq-body">Todas as aulas ficam gravadas e disponíveis por 6 meses. Os exercícios têm prazo flexível e as dúvidas são resolvidas no grupo ou em sessão de reposição.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="comecar" style="padding-bottom:0;">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>O seu relatório de segunda-feira pode ser o último manual.</h2>
+      <p>Em 10 semanas você troca horas de copiar e colar por uma consulta SQL e um painel que se atualiza sozinho. É a mudança mais rápida de perceber no dia a dia.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Data%20Analyst%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero os valores e a próxima turma</a>
+        <a href="#contato-curso" class="btn btn-ghost">Prefiro preencher o formulário</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Sem pré-requisito</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado incluso</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-curso">
+  <div class="container">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos avaliar o seu <em>ponto de partida?</em></h2>
+    <div class="section-rule"></div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" data-wa="5511947350715" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome-curso">Nome *</label>
+            <input type="text" id="nome-curso" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="email-curso">E-mail</label>
+            <input type="email" id="email-curso" name="email" placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp-curso">WhatsApp</label>
+            <input type="tel" id="whatsapp-curso" name="whatsapp" placeholder="(11) 99999-9999" />
+          </div>
+          <div class="form-group">
+            <label for="interesse-curso">Trilha de interesse</label>
+            <select id="interesse-curso" name="interesse">
+              <option selected>Data Analyst</option>
+              <option>Data Science</option>
+              <option>Data Engineer</option>
+              <option>ML Engineer</option>
+              <option>IA Generativa</option>
+              <option>Deep Learning Engineering</option>
+              <option>Cloud Deployment</option>
+              <option>Data Product Manager</option>
+              <option>Ainda não sei — quero orientação</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensagem-curso">Seu contexto atual</label>
+          <textarea id="mensagem-curso" name="mensagem" placeholder="Com o que você trabalha hoje e o que quer resolver com dados?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar via WhatsApp</button>
+        <p class="form-hint">Ao enviar, você será redirecionado para o WhatsApp com a mensagem pré-preenchida. Seus dados não são armazenados neste site — veja a <a href="../privacidade.html" style="text-decoration:underline;">Política de Privacidade</a>.</p>
+      </form>
+
+      <aside class="contact-aside reveal" aria-label="Canais diretos de contato">
+        <span class="response-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respondemos em até 24h úteis
+        </span>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div>
+            <div class="ic-label">WhatsApp</div>
+            <div class="ic-value"><a href="https://wa.me/5511947350715" target="_blank" rel="noopener">(11) 94735-0715</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <div>
+            <div class="ic-label">E-mail</div>
+            <div class="ic-value"><a href="mailto:dtn.tecnology@gmail.com">dtn.tecnology@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+          <div>
+            <div class="ic-label">LinkedIn</div>
+            <div class="ic-value"><a href="https://www.linkedin.com/in/datanorth-dtn-tecnology-9ba758418/" target="_blank" rel="noopener">/datanorth-dtn</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Horário</div>
+            <div class="ic-value">Segunda a sexta, 9h às 18h</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRAS TRILHAS -->
+<section id="outras" class="alt">
+  <div class="container">
+    <p class="section-label">Outras trilhas</p>
+    <h2 class="section-title">Talvez o seu caminho seja <em>outro</em></h2>
+    <div class="section-rule"></div>
+    <div class="trail-grid reveal">
+      <a href="data-science.html" class="trail-link">
+        <span class="tl-name">Data Science</span>
+        <span class="tl-level">Intermediário · 60h</span>
+      </a>
+      <span class="trail-link current" aria-current="page">
+        <span class="tl-name">Data Analyst</span>
+        <span class="tl-level">Você está aqui · 40h</span>
+      </span>
+      <a href="data-engineer.html" class="trail-link">
+        <span class="tl-name">Data Engineer</span>
+        <span class="tl-level">Intermediário · 60h</span>
+      </a>
+      <a href="ml-engineer.html" class="trail-link">
+        <span class="tl-name">ML Engineer</span>
+        <span class="tl-level">Avançado · 60h</span>
+      </a>
+      <a href="ia-generativa.html" class="trail-link">
+        <span class="tl-name">IA Generativa</span>
+        <span class="tl-level">Todos os níveis · 32h</span>
+      </a>
+      <a href="deep-learning-engineering.html" class="trail-link">
+        <span class="tl-name">Deep Learning Engineering</span>
+        <span class="tl-level">Avançado · 70h</span>
+      </a>
+      <a href="cloud-deployment.html" class="trail-link">
+        <span class="tl-name">Cloud Deployment</span>
+        <span class="tl-level">Intermediário · 40h</span>
+      </a>
+      <a href="data-product-manager.html" class="trail-link">
+        <span class="tl-name">Data Product Manager</span>
+        <span class="tl-level">Iniciante · 28h</span>
+      </a>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:28px;">
+      Em dúvida entre duas trilhas? <a href="../educacao.html#contato-edu" style="font-weight:600;">Fale conosco</a> e montamos o caminho com você.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:dtn.tecnology@gmail.com">E-mail</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20trilha%20de%20Data%20Analyst%20da%20DTN." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp sobre Data Analyst">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

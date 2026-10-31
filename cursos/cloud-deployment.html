@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Deployment | Trilha de carreira DTN Educação</title>
+  <meta name="description" content="Trilha de Cloud Deployment da DTN: Docker, CI/CD com GitHub Actions, infraestrutura como código com Terraform, observabilidade, segurança e controle de custo em nuvem." />
+  <meta property="og:title" content="Cloud Deployment | DTN Educação" />
+  <meta property="og:description" content="Tire o projeto do 'roda na minha máquina': Docker, CI/CD, Terraform, observabilidade e custo sob controle." />
+  <meta property="og:image" content="../assets/images/capa_2.0.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" href="../assets/images/dtn_logo.png" type="image/png" />
+  <link rel="canonical" href="https://datanorth.com.br/cursos/cloud-deployment" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body data-track="education">
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a href="../index.html" class="nav-brand" aria-label="DTN – página inicial">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+      <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+      <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+      <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+    </svg>
+    <span>dtn</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" role="list">
+      <li><a href="#perfil">Para quem é</a></li>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#oferta">Investimento</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <a href="../empresas.html" class="track-switcher" aria-label="Ir para o site de Empresas">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H2M6 4L2 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Para empresas
+    </a>
+    <a href="#oferta" class="nav-cta">Quero me inscrever</a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO · TOPO DO FUNIL -->
+<section id="hero">
+  <div class="hero-mountain">
+    <img src="../assets/images/capa_2.0.png" alt="" aria-hidden="true" width="2000" height="1200" loading="eager" />
+  </div>
+  <div class="hero-content reveal">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <a href="../educacao.html">Educação</a>
+      <span class="bc-sep" aria-hidden="true">/</span>
+      <span class="bc-current">Cloud Deployment</span>
+    </nav>
+    <span class="hero-eyebrow">Trilha de carreira · Intermediário</span>
+    <h1 class="hero-title">Cloud Deployment</h1>
+    <p class="hero-sub">Docker, CI/CD, infraestrutura como código e observabilidade. A trilha que encerra a frase "funciona na minha máquina" e coloca o seu projeto no ar com deploy repetível, seguro e com custo previsto.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Cloud%20Deployment%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Falar com um consultor</a>
+      <a href="#programa" class="btn btn-ghost">Ver o programa completo</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>40 horas ao vivo</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>AWS · Azure · GCP</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Deploy automatizado real</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section id="dor" style="padding-top:0;">
+  <div class="container">
+    <p class="section-label">O ponto de partida</p>
+    <h2 class="section-title">Deploy virou evento de <em>risco</em>, não rotina</h2>
+    <div class="section-rule"></div>
+    <div class="pain-grid reveal">
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <h3>"Funciona na minha máquina"</h3>
+        <p>Versão de biblioteca diferente, variável de ambiente esquecida, caminho absoluto. O ambiente que só existe no seu notebook não é entregável — é acidente aguardando data.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3>Subir versão à mão, de madrugada, com medo</h3>
+        <p>SSH, git pull, reiniciar serviço, torcer. Sem rollback testado, qualquer erro vira indisponibilidade — e você vira o único que sabe fazer.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h3>Fatura de nuvem que ninguém previu</h3>
+        <p>Instância ligada no fim de semana, disco órfão, bucket público, serviço gerenciado dimensionado no chute. O susto chega no boleto, nunca no deploy.</p>
+      </div>
+
+      <div class="pain-card card">
+        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16"/></svg>
+        <h3>Quebrou e ninguém soube primeiro</h3>
+        <p>Sem log centralizado, métrica ou alerta, quem avisa que o sistema caiu é o cliente. Você descobre o problema pelo WhatsApp, não pelo monitoramento.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil" class="alt">
+  <div class="container">
+    <p class="section-label">Perfil</p>
+    <h2 class="section-title">Para quem é — e para quem <em>não é</em></h2>
+    <div class="section-rule"></div>
+    <div class="fit-grid reveal">
+
+      <div class="fit-col fit-col--yes">
+        <h3><span class="fit-mark" aria-hidden="true">✓</span>Esta trilha é para você se</h3>
+        <ul class="check-list">
+          <li>Constrói solução (app, API, dashboard, modelo) e precisa colocá-la no ar com as próprias mãos.</li>
+          <li>É cientista ou analista de dados cujo projeto morre no notebook por falta de deploy.</li>
+          <li>É desenvolvedor e quer sair do FTP/SSH manual para CI/CD e infraestrutura como código.</li>
+          <li>Precisa justificar custo de nuvem e segurança para sócio, gestor ou cliente.</li>
+          <li>Quer entender AWS, Azure e GCP pelo conceito — sem ficar preso a um provedor.</li>
+        </ul>
+      </div>
+
+      <div class="fit-col fit-col--no">
+        <h3><span class="fit-mark" aria-hidden="true">✕</span>Não é para você se</h3>
+        <ul class="check-list cross-list">
+          <li>Nunca usou linha de comando nem Git — combine um nivelamento conosco antes.</li>
+          <li>Quer aprender a construir pipeline de dados em si — a trilha é <a href="data-engineer.html">Data Engineer</a>.</li>
+          <li>Quer serving e monitoramento específico de modelo de ML — veja <a href="ml-engineer.html">ML Engineer</a>.</li>
+          <li>Busca curso preparatório de certificação de fornecedor. Ensinamos prática de engenharia; a certificação pode vir como consequência, mas não é o objetivo.</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="prereq reveal">
+      <h4>Pré-requisitos</h4>
+      <p>Uso confortável de terminal (navegar, executar script, ler saída de erro), Git funcional (commit, branch, push, pull request) e uma linguagem de programação em nível de escrever uma aplicação simples — Python, Node ou similar. Também ajuda entender o básico de HTTP: requisição, resposta, status code. Não exigimos experiência prévia com nuvem nem com Docker.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="container">
+    <p class="section-label">Resultado</p>
+    <h2 class="section-title">O que você sai <em>fazendo</em></h2>
+    <div class="section-rule"></div>
+    <div class="pillars reveal">
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 4l14 7v18l-14 7-14-7V11z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M6 11l14 7 14-7M20 18v18" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Containerizar qualquer aplicação</h3>
+        <p>Dockerfile enxuto com multi-stage build, .dockerignore, variável de ambiente e Docker Compose para subir aplicação com banco local. Ambiente idêntico em toda máquina.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="12" cy="20" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="30" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="30" cy="28" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="17" y1="18" x2="26" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="17" y1="22" x2="26" y2="27" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Automatizar do commit ao deploy</h3>
+        <p>GitHub Actions com teste, build, publicação de imagem e deploy. Pull request que falha teste não chega a produção — a esteira decide, não a pressa.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><polyline points="14 12 8 20 14 28" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="26 12 32 20 26 28" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="22" y1="10" x2="18" y2="30" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h3>Declarar infraestrutura em vez de clicar no console</h3>
+        <p>Terraform com estado, plano, módulo e ambiente separado (dev/homolog/prod). Criar e destruir infraestrutura inteira em minutos, com revisão antes de aplicar.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M18 10h-6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h20a4 4 0 0 0 4-4V14a4 4 0 0 0-4-4h-6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 4v12" stroke="currentColor" stroke-width="1.5"/><polyline points="15 11 20 16 25 11" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        <h3>Escolher o serviço certo pelo custo, não pelo nome</h3>
+        <p>VM, container gerenciado, serverless e plataforma: latência, escala, custo e complexidade de cada um. Você decide com número, não com o que está em evidência.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M6 32l8-10 6 6 8-14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="14" cy="22" r="2" fill="currentColor"/><circle cx="20" cy="28" r="2" fill="currentColor"/><circle cx="28" cy="14" r="2" fill="currentColor"/></svg>
+        <h3>Saber que quebrou antes do cliente avisar</h3>
+        <p>Log centralizado, métrica, health check, alerta acionável e tracing básico. Observabilidade como parte do deploy, não como projeto separado depois.</p>
+      </div>
+
+      <div class="pillar card">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="8" y="18" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M14 18v-6a6 6 0 0 1 12 0v6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="20" cy="26" r="2" fill="currentColor"/></svg>
+        <h3>Proteger credencial e controlar gasto</h3>
+        <p>IAM com permissão mínima, secret fora do repositório, rede e grupo de segurança, orçamento com alerta. Segurança e custo tratados como requisito, não como susto.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section id="programa" class="alt">
+  <div class="container">
+    <p class="section-label">Programa</p>
+    <h2 class="section-title">Cinco módulos, do container <em>à produção monitorada</em></h2>
+    <div class="section-rule"></div>
+    <p style="max-width:620px;font-size:15px;line-height:1.8;margin-bottom:0;">
+      Você traz um projeto seu — ou usa o que fornecemos — e o leva do zero até publicado em nuvem, com deploy automatizado, alerta e custo medido.
+    </p>
+    <div class="module-list reveal">
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">01</span>
+          <span class="module-title">Fundamentos de nuvem e o modelo mental certo</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>O que é nuvem de verdade: computação, armazenamento e rede como serviço</li>
+            <li>IaaS, PaaS, SaaS e serverless — o que cada camada terceiriza para você</li>
+            <li>Região, zona de disponibilidade, escalabilidade e o mito do "100% no ar"</li>
+            <li>Modelo de responsabilidade compartilhada e segurança</li>
+            <li>Leitura de preço: como a fatura é composta e onde ela surpreende</li>
+            <li>Comparativo AWS, Azure e GCP: serviços equivalentes lado a lado</li>
+          </ul>
+          <p class="module-outcome">Entrega: escolha justificada de provedor e arquitetura para o seu projeto final.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">02</span>
+          <span class="module-title">Docker em profundidade</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Container vs. máquina virtual: isolamento, namespace e o que muda na prática</li>
+            <li>Dockerfile: camadas, cache e por que a ordem das instruções importa</li>
+            <li>Multi-stage build: imagem final pequena e sem ferramenta de compilação</li>
+            <li>Volumes, redes e variável de ambiente sem segredo no código</li>
+            <li>Docker Compose para desenvolvimento local com banco de dados</li>
+            <li>Registry: publicar e versionar imagem</li>
+          </ul>
+          <p class="module-outcome">Entrega: aplicação do projeto final containerizada e publicada em registry.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">03</span>
+          <span class="module-title">Infraestrutura como código com Terraform</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Por que clicar no console não escala: drift e ambiente não reproduzível</li>
+            <li>Terraform: provider, resource, variável e output</li>
+            <li>Estado remoto, lock e trabalho em equipe sem conflito</li>
+            <li>plan antes do apply: revisar mudança antes de executar</li>
+            <li>Módulos e ambientes separados: dev, homologação e produção</li>
+            <li>Rede básica: VPC, sub-rede, grupo de segurança e exposição pública</li>
+          </ul>
+          <p class="module-outcome">Entrega: infraestrutura do projeto criada por código, com dois ambientes.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">04</span>
+          <span class="module-title">CI/CD e deploy sem downtime</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Pipeline: estágio de teste, build, publicação e deploy</li>
+            <li>GitHub Actions: workflow, secret, ambiente e aprovação manual</li>
+            <li>Estratégias de deploy: rolling, blue-green e canary</li>
+            <li>Rollback rápido e testado — o plano que ninguém escreve até precisar</li>
+            <li>Health check, readiness e por que o balanceador precisa saber</li>
+            <li>Migração de banco de dados em deploy sem quebrar a versão antiga</li>
+            <li>Kubernetes: o conceito, quando faz sentido e quando é excesso</li>
+          </ul>
+          <p class="module-outcome">Entrega: pipeline que leva o commit até produção automaticamente, com rollback.</p>
+        </div>
+      </details>
+
+      <details class="module">
+        <summary>
+          <span class="module-num" aria-hidden="true">05</span>
+          <span class="module-title">Observabilidade, segurança, custo e projeto final</span>
+          <span class="module-hours">8h</span>
+        </summary>
+        <div class="module-body">
+          <ul>
+            <li>Log centralizado, estruturado e pesquisável</li>
+            <li>Métrica, dashboard e alerta com threshold que não gera ruído</li>
+            <li>Tracing básico: achar onde a requisição lenta aconteceu</li>
+            <li>IAM e permissão mínima; secret manager; rotação de credencial</li>
+            <li>LGPD em nuvem: residência de dado, criptografia e acesso</li>
+            <li>Orçamento, alerta de gasto e desligamento de recurso órfão</li>
+            <li>Apresentação do projeto final com feedback individual</li>
+          </ul>
+          <p class="module-outcome">Entrega: aplicação em produção com monitoramento, alerta e custo documentado.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <p class="section-label">Investimento</p>
+    <h2 class="section-title">O que está <em>incluído</em></h2>
+    <div class="section-rule"></div>
+    <span class="scarcity-badge"><span class="dot" aria-hidden="true"></span>Turmas com vagas limitadas para manter o acompanhamento</span>
+    <div class="offer-grid reveal">
+
+      <div class="offer-card">
+        <h3>Trilha completa de Cloud Deployment</h3>
+        <p class="offer-lead">40 horas ao vivo, em turma pequena, com o seu projeto — não um projeto genérico — publicado em nuvem e com pipeline funcionando ao final.</p>
+        <ul class="offer-list">
+          <li>40h de aulas ao vivo via Google Meet (não é vídeo gravado genérico)</li>
+          <li>Revisão individual de Dockerfile, workflow de CI/CD e código Terraform</li>
+          <li>Projeto final: sua aplicação em produção, com deploy automatizado e alerta</li>
+          <li>Templates prontos de Dockerfile, GitHub Actions e módulos Terraform</li>
+          <li>Guia de configuração de conta em nuvem usando faixa gratuita</li>
+          <li>Checklist de segurança e de controle de custo para reutilizar</li>
+          <li>Grupo de dúvidas com o instrutor durante a trilha</li>
+          <li>Certificado de conclusão com carga horária</li>
+          <li>Gravação das aulas por 6 meses para revisão</li>
+        </ul>
+        <div class="offer-price">
+          <div class="op-label">Investimento</div>
+          <div class="op-value">Sob consulta</div>
+          <p class="op-note">Condições e parcelamento definidos na conversa, conforme turma individual ou em grupo. Emitimos nota fiscal e atendemos pagamento por empresa.</p>
+        </div>
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Cloud%20Deployment%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Receber valores e próximas turmas
+        </a>
+        <p class="offer-fine">Garantia de 7 dias: reembolso integral, sem burocracia (CDC art. 49).</p>
+      </div>
+
+      <aside class="offer-side reveal" aria-label="Garantias e detalhes da trilha">
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <div>
+            <div class="ic-label">Risco zero</div>
+            <div class="ic-value">7 dias de garantia incondicional. Se não for para você, devolvemos 100%.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Dedicação semanal</div>
+            <div class="ic-value">Cerca de 4h de aula + 3h de prática. Duração típica: 10 semanas.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <div>
+            <div class="ic-label">Custo de nuvem</div>
+            <div class="ic-value">Praticamos em faixa gratuita e ensinamos alerta de orçamento no primeiro dia.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+          <div>
+            <div class="ic-label">Turma pequena</div>
+            <div class="ic-value">Vagas limitadas para que cada pipeline seja revisado individualmente.</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg></span>
+          <div>
+            <div class="ic-label">Certificado</div>
+            <div class="ic-value">Emitido ao final, com carga horária e conteúdo programático.</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="container">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2 class="section-title">Antes de você <em>se inscrever</em></h2>
+    <div class="section-rule"></div>
+    <div class="faq reveal">
+
+      <details class="faq-item">
+        <summary>Vocês ensinam qual provedor de nuvem?</summary>
+        <div class="faq-body">Usamos AWS como referência principal, por ser a mais presente no mercado brasileiro, e mostramos o serviço equivalente em Azure e GCP em cada tópico. Docker, Terraform e GitHub Actions são neutros de provedor — ou seja, a maior parte da trilha vale para qualquer nuvem, inclusive para a que a sua empresa já usa.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Vou ter custo de nuvem durante o curso?</summary>
+        <div class="faq-body">O projeto é dimensionado para a faixa gratuita dos provedores, e a primeira prática inclui configuração de alerta de orçamento. Se a sua conta não tiver acesso ao free tier, o gasto típico do projeto final fica em poucos reais por mês — e ensinamos a destruir toda a infraestrutura com um comando ao terminar, para não deixar recurso cobrando.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>É curso preparatório para certificação AWS ou Azure?</summary>
+        <div class="faq-body">Não, e preferimos dizer isso com clareza. Ensinamos prática de engenharia de deploy: container, pipeline, IaC e observabilidade. Alunos que fazem a trilha costumam ter base sólida para certificações de nível associado, mas não cobrimos o edital item por item nem simulados. Se o seu objetivo exclusivo é passar numa prova específica, um curso focado no exame rende mais.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Kubernetes entra na trilha?</summary>
+        <div class="faq-body">Entra como conceito e critério de decisão no módulo 04: o que é, que problema resolve, qual o custo operacional e quando um container gerenciado simples já basta. Não é uma trilha de Kubernetes — aprofundar em cluster, operador e service mesh exigiria um curso inteiro. Se for a sua necessidade, combinamos <a href="../educacao.html#aulas">aulas particulares</a> sobre isso.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Sou de dados, não sou dev. Serve para mim?</summary>
+        <div class="faq-body">Serve, e é um dos públicos que mais se beneficia. Cientista e analista que aprende a containerizar e publicar para de depender de terceiros para colocar modelo ou dashboard no ar. O requisito é ter terminal e Git funcionando e conseguir escrever um script simples — não é preciso ser engenheiro de software.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Posso usar o projeto da minha empresa como projeto final?</summary>
+        <div class="faq-body">Sim — é o cenário ideal, e o mais comum nesta trilha. Você sai com deploy real funcionando em vez de exercício. Só pedimos cuidado com credencial e dado sensível: nada de secret de produção em repositório de aula, e seguimos o que está na nossa <a href="../privacidade.html">Política de Privacidade</a>.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="comecar" style="padding-bottom:0;">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Da próxima vez, deploy pode ser um comando — não um evento.</h2>
+      <p>Quem sabe publicar com pipeline, rollback e alerta deixa de ser gargalo e passa a ser quem destrava o time. É a habilidade que transforma projeto pronto em projeto no ar.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20trilha%20de%20Cloud%20Deployment%20da%20DTN." class="btn btn-solid" target="_blank" rel="noopener">Quero os valores e a próxima turma</a>
+        <a href="#contato-curso" class="btn btn-ghost">Prefiro preencher o formulário</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Resposta em 24h úteis</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><polyline points="9 13 8 22 12 19 16 22 15 13"/></svg>Certificado incluso</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-curso">
+  <div class="container">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos avaliar o seu <em>ponto de partida?</em></h2>
+    <div class="section-rule"></div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" data-wa="5511947350715" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome-curso">Nome *</label>
+            <input type="text" id="nome-curso" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label for="email-curso">E-mail</label>
+            <input type="email" id="email-curso" name="email" placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp-curso">WhatsApp</label>
+            <input type="tel" id="whatsapp-curso" name="whatsapp" placeholder="(11) 99999-9999" />
+          </div>
+          <div class="form-group">
+            <label for="interesse-curso">Trilha de interesse</label>
+            <select id="interesse-curso" name="interesse">
+              <option selected>Cloud Deployment</option>
+              <option>Data Science</option>
+              <option>Data Analyst</option>
+              <option>Data Engineer</option>
+              <option>ML Engineer</option>
+              <option>IA Generativa</option>
+              <option>Deep Learning Engineering</option>
+              <option>Data Product Manager</option>
+              <option>Ainda não sei — quero orientação</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensagem-curso">Seu contexto atual</label>
+          <textarea id="mensagem-curso" name="mensagem" placeholder="O que você já publica hoje e como faz esse deploy? Já usou Docker ou alguma nuvem?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar via WhatsApp</button>
+        <p class="form-hint">Ao enviar, você será redirecionado para o WhatsApp com a mensagem pré-preenchida. Seus dados não são armazenados neste site — veja a <a href="../privacidade.html" style="text-decoration:underline;">Política de Privacidade</a>.</p>
+      </form>
+
+      <aside class="contact-aside reveal" aria-label="Canais diretos de contato">
+        <span class="response-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Respondemos em até 24h úteis
+        </span>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div>
+            <div class="ic-label">WhatsApp</div>
+            <div class="ic-value"><a href="https://wa.me/5511947350715" target="_blank" rel="noopener">(11) 94735-0715</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <div>
+            <div class="ic-label">E-mail</div>
+            <div class="ic-value"><a href="mailto:dtn.tecnology@gmail.com">dtn.tecnology@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+          <div>
+            <div class="ic-label">LinkedIn</div>
+            <div class="ic-value"><a href="https://www.linkedin.com/in/datanorth-dtn-tecnology-9ba758418/" target="_blank" rel="noopener">/datanorth-dtn</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div>
+            <div class="ic-label">Horário</div>
+            <div class="ic-value">Segunda a sexta, 9h às 18h</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRAS TRILHAS -->
+<section id="outras" class="alt">
+  <div class="container">
+    <p class="section-label">Outras trilhas</p>
+    <h2 class="section-title">Talvez o seu caminho seja <em>outro</em></h2>
+    <div class="section-rule"></div>
+    <div class="trail-grid reveal">
+      <a href="data-science.html" class="trail-link">
+        <span class="tl-name">Data Science</span>
+        <span class="tl-level">Intermediário · 60h</span>
+      </a>
+      <a href="data-analyst.html" class="trail-link">
+        <span class="tl-name">Data Analyst</span>
+        <span class="tl-level">Iniciante · 40h</span>
+      </a>
+      <a href="data-engineer.html" class="trail-link">
+        <span class="tl-name">Data Engineer</span>
+        <span class="tl-level">Intermediário · 60h</span>
+      </a>
+      <a href="ml-engineer.html" class="trail-link">
+        <span class="tl-name">ML Engineer</span>
+        <span class="tl-level">Avançado · 60h</span>
+      </a>
+      <a href="ia-generativa.html" class="trail-link">
+        <span class="tl-name">IA Generativa</span>
+        <span class="tl-level">Todos os níveis · 32h</span>
+      </a>
+      <a href="deep-learning-engineering.html" class="trail-link">
+        <span class="tl-name">Deep Learning Engineering</span>
+        <span class="tl-level">Avançado · 70h</span>
+      </a>
+      <span class="trail-link current" aria-current="page">
+        <span class="tl-name">Cloud Deployment</span>
+        <span class="tl-level">Você está aqui · 40h</span>
+      </span>
+      <a href="data-product-manager.html" class="trail-link">
+        <span class="tl-name">Data Product Manager</span>
+        <span class="tl-level">Iniciante · 28h</span>
+      </a>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:28px;">
+      Em dúvida entre duas trilhas? <a href="../educacao.html#contato-edu" style="font-weight:600;">Fale conosco</a> e montamos o caminho com você.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/>
+        <polygon points="14,4 17,12 14,14 11,12" fill="currentColor"/>
+        <polygon points="14,24 11,16 14,14 17,16" fill="currentColor" opacity="0.3"/>
+        <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
+      </svg>
+      <span>dtn · Data North</span>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Início</a>
+      <a href="../empresas.html">Empresas</a>
+      <a href="../educacao.html">Educação</a>
+      <a href="../privacidade.html">Privacidade (LGPD)</a>
+      <a href="../termos-cursos.html">Termos dos cursos</a>
+      <a href="https://wa.me/5511947350715" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:dtn.tecnology@gmail.com">E-mail</a>
+    </div>
+    <p class="footer-copy">© <span class="footer-year">2026</span> DTN – Data North. Todos os direitos reservados. The compass for your business.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511947350715?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20trilha%20de%20Cloud%20Deployment%20da%20DTN." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp sobre Cloud Deployment">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
