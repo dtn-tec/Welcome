@@ -735,6 +735,51 @@ footer {
 }
 .catalog-subtitle span { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--text-muted); }
 
+/* Aulas gratuitas no YouTube — faixa discreta de 4 módulos de base.
+   Vermelho pedido explicitamente pelo dono; não usar --accent (glacier). */
+.yt-grid {
+  --yt-red: #C0392B;
+  --yt-red-deep: #8E2318;
+  --yt-tint: rgba(255, 99, 71, .10);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 14px; margin-top: 20px;
+}
+.yt-card {
+  position: relative;
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 16px 18px 18px;
+  background: var(--yt-tint);
+  border: 2px solid var(--yt-red);
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: background .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+.yt-card:hover, .yt-card:focus-visible {
+  background: var(--yt-red-deep);
+  border-color: var(--yt-red-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(142,35,24,.28);
+}
+.yt-num {
+  font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: .12em; color: var(--yt-red); font-variant-numeric: tabular-nums;
+}
+.yt-title {
+  font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
+  line-height: 1.25; color: var(--text);
+}
+.yt-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-muted); }
+.yt-card:hover .yt-num, .yt-card:hover .yt-title, .yt-card:hover .yt-desc,
+.yt-card:focus-visible .yt-num, .yt-card:focus-visible .yt-title, .yt-card:focus-visible .yt-desc { color: #fff; }
+.yt-logo {
+  position: absolute; top: 13px; right: 14px;
+  height: 15px; width: auto; opacity: .92;
+  transition: filter .25s, opacity .25s;
+}
+.yt-card:hover .yt-logo, .yt-card:focus-visible .yt-logo {
+  filter: brightness(0) invert(1); opacity: 1;
+}
+
 /* Track cards (trilhas completas) */
 .track-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -963,6 +1008,7 @@ code {
 @media (max-width: 980px) {
   .track-grid { grid-template-columns: 1fr; max-width: 560px; }
   .course-grid { grid-template-columns: 1fr 1fr; }
+  .yt-grid { grid-template-columns: 1fr 1fr; }
   .cp-hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .cp-summary { position: static; }
   .pipeline { grid-template-columns: repeat(4, 1fr); row-gap: 28px; }
@@ -972,7 +1018,7 @@ code {
   .enroll { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .course-grid, .outcome-grid, .fit-grid, .format-grid { grid-template-columns: 1fr; }
+  .course-grid, .outcome-grid, .fit-grid, .format-grid, .yt-grid { grid-template-columns: 1fr; }
   .enroll-left, .enroll-right { padding: 30px 24px; }
   .pipeline { grid-template-columns: 1fr 1fr; }
   .pipe-step:nth-child(odd)::before { display: none; }
